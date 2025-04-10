@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torchvision
-from torchvision import datasets,transforms
+from torchvision import datasets,models,transforms
 import matplotlib.pyplot as plt
 import numpy as np
 '''读取数据
@@ -31,6 +31,9 @@ print('test')
 - 注意卷积最后结果还是一个特征图，需要把图转换成向量才能做分类或者回归任务
 '''
 
+model_ft = models.resnet18(pretrained=use_pretrained)
+set_parameter_requires_grad(model_ft, feature_extract)
+num_features = model_ft.fc.in_features
 
 class MY_CNN(nn.Module):
     def __init__(self):
