@@ -1,0 +1,8 @@
+{
+  "total_files_processed": 2,
+  "total_identifiers_found": 372,
+  "results_files": [
+    "xml_processing_results_kaggle.json",
+    "xml_processing_results_5-9-ocr-credit-card.json"
+  ]
+}

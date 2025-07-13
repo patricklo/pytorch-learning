@@ -1,0 +1,18 @@
+Extracted DOI Links from XML File (Improved)
+============================================================
+
+ 1. 1029/2002GL015948
+    URL: https://doi.org/1029/2002GL015948
+    Type: text_pattern
+    Raw: 1029/2002GL015948
+
+ 2. 1029/2002GL015948</idno>
+    URL: https://doi.org/1029/2002GL015948</idno>
+    Type: text_pattern
+    Raw: 1029/2002GL015948</idno>
+
+ 3. https://doi
+    URL: https://doi.org/https://doi
+    Type: text_pattern
+    Raw: https://doi
+

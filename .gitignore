@@ -2,3 +2,5 @@
 /.idea
 /flower_data
 *.jpg
+/4-2/data
+*.pth

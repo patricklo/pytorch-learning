@@ -1,0 +1,683 @@
+Extracted DOI Links from XML File (Simple Method)
+============================================================
+
+ 1. 10.1002/2013GB004781
+    URL: https://doi.org/10.1002/2013GB004781
+    Type: idno_element
+    Source: idno_tag
+
+ 2. 10.1002/2013GL058065
+    URL: https://doi.org/10.1002/2013GL058065
+    Type: idno_element
+    Source: idno_tag
+
+ 3. 10.1002/2014GL059244
+    URL: https://doi.org/10.1002/2014GL059244
+    Type: idno_element
+    Source: idno_tag
+
+ 4. 10.1002/2014JC010189
+    URL: https://doi.org/10.1002/2014JC010189
+    Type: idno_element
+    Source: idno_tag
+
+ 5. 10.1002/2015GB005276
+    URL: https://doi.org/10.1002/2015GB005276
+    Type: idno_element
+    Source: idno_tag
+
+ 6. 10.1002/2015GL064540
+    URL: https://doi.org/10.1002/2015GL064540
+    Type: idno_element
+    Source: idno_tag
+
+ 7. 10.1002/2016JC012629
+    URL: https://doi.org/10.1002/2016JC012629
+    Type: idno_element
+    Source: idno_tag
+
+ 8. 10.1002/lno.10011
+    URL: https://doi.org/10.1002/lno.10011
+    Type: idno_element
+    Source: idno_tag
+
+ 9. 10.1002/lom3.10144
+    URL: https://doi.org/10.1002/lom3.10144
+    Type: idno_element
+    Source: idno_tag
+
+10. 10.1002/lom3.10185
+    URL: https://doi.org/10.1002/lom3.10185
+    Type: idno_element
+    Source: idno_tag
+
+11. 10.1006/jmbi.1998.2073
+    URL: https://doi.org/10.1006/jmbi.1998.2073
+    Type: idno_element
+    Source: idno_tag
+
+12. 10.1016/0198-0149(91
+    URL: https://doi.org/10.1016/0198-0149(91
+    Type: text_pattern
+    Source: text_content
+
+13. 10.1016/0198-0149(91)90094-V
+    URL: https://doi.org/10.1016/0198-0149(91)90094-V
+    Type: idno_element
+    Source: idno_tag
+
+14. 10.1016/0924-7963(92
+    URL: https://doi.org/10.1016/0924-7963(92
+    Type: text_pattern
+    Source: text_content
+
+15. 10.1016/0924-7963(92)90032-4
+    URL: https://doi.org/10.1016/0924-7963(92)90032-4
+    Type: idno_element
+    Source: idno_tag
+
+16. 10.1016/S0924-7963(03
+    URL: https://doi.org/10.1016/S0924-7963(03
+    Type: text_pattern
+    Source: text_content
+
+17. 10.1016/S0924-7963(03)00011-3
+    URL: https://doi.org/10.1016/S0924-7963(03)00011-3
+    Type: idno_element
+    Source: idno_tag
+
+18. 10.1016/S0967-0637(01
+    URL: https://doi.org/10.1016/S0967-0637(01
+    Type: text_pattern
+    Source: text_content
+
+19. 10.1016/S0967-0637(01)00025-5
+    URL: https://doi.org/10.1016/S0967-0637(01)00025-5
+    Type: idno_element
+    Source: idno_tag
+
+20. 10.1016/j.dsr.2003.09.002
+    URL: https://doi.org/10.1016/j.dsr.2003.09.002
+    Type: idno_element
+    Source: idno_tag
+
+21. 10.1016/j.dsr.2003.09.012
+    URL: https://doi.org/10.1016/j.dsr.2003.09.012
+    Type: idno_element
+    Source: idno_tag
+
+22. 10.1016/j.dsr.2006.07.009
+    URL: https://doi.org/10.1016/j.dsr.2006.07.009
+    Type: idno_element
+    Source: idno_tag
+
+23. 10.1016/j.dsr.2008.11.006
+    URL: https://doi.org/10.1016/j.dsr.2008.11.006
+    Type: idno_element
+    Source: idno_tag
+
+24. 10.1016/j.dsr.2011.07.007
+    URL: https://doi.org/10.1016/j.dsr.2011.07.007
+    Type: idno_element
+    Source: idno_tag
+
+25. 10.1016/j.dsr.2015.04.006
+    URL: https://doi.org/10.1016/j.dsr.2015.04.006
+    Type: idno_element
+    Source: idno_tag
+
+26. 10.1016/j.dsr2.2003.07.018
+    URL: https://doi.org/10.1016/j.dsr2.2003.07.018
+    Type: idno_element
+    Source: idno_tag
+
+27. 10.1016/j.dsr2.2006.01.029
+    URL: https://doi.org/10.1016/j.dsr2.2006.01.029
+    Type: idno_element
+    Source: idno_tag
+
+28. 10.1016/j.dsr2.2015.01.003
+    URL: https://doi.org/10.1016/j.dsr2.2015.01.003
+    Type: idno_element
+    Source: idno_tag
+
+29. 10.1016/j.mio.2013.12.003
+    URL: https://doi.org/10.1016/j.mio.2013.12.003
+    Type: idno_element
+    Source: idno_tag
+
+30. 10.1016/j.pocean.2004.07.001
+    URL: https://doi.org/10.1016/j.pocean.2004.07.001
+    Type: idno_element
+    Source: idno_tag
+
+31. 10.1016/j.pocean.2007.09.002
+    URL: https://doi.org/10.1016/j.pocean.2007.09.002
+    Type: idno_element
+    Source: idno_tag
+
+32. 10.1016/j.pocean.2009.02.001
+    URL: https://doi.org/10.1016/j.pocean.2009.02.001
+    Type: idno_element
+    Source: idno_tag
+
+33. 10.1016/j.pocean.2015.01.008
+    URL: https://doi.org/10.1016/j.pocean.2015.01.008
+    Type: idno_element
+    Source: idno_tag
+
+34. 10.1016/j.rse.2008.06.008
+    URL: https://doi.org/10.1016/j.rse.2008.06.008
+    Type: idno_element
+    Source: idno_tag
+
+35. 10.1016/j.rse.2013.03.025
+    URL: https://doi.org/10.1016/j.rse.2013.03.025
+    Type: idno_element
+    Source: idno_tag
+
+36. 10.1016/j.rse.2013.09.009
+    URL: https://doi.org/10.1016/j.rse.2013.09.009
+    Type: idno_element
+    Source: idno_tag
+
+37. 10.1016/j.rse.2014.06.029
+    URL: https://doi.org/10.1016/j.rse.2014.06.029
+    Type: idno_element
+    Source: idno_tag
+
+38. 10.1016/j.rse.2016.06.002
+    URL: https://doi.org/10.1016/j.rse.2016.06.002
+    Type: idno_element
+    Source: idno_tag
+
+39. 10.1016/j.rse.2016.08.004
+    URL: https://doi.org/10.1016/j.rse.2016.08.004
+    Type: idno_element
+    Source: idno_tag
+
+40. 10.1029/1999JC000311
+    URL: https://doi.org/10.1029/1999JC000311
+    Type: idno_element
+    Source: idno_tag
+
+41. 10.1029/2000JC000319
+    URL: https://doi.org/10.1029/2000JC000319
+    Type: idno_element
+    Source: idno_tag
+
+42. 10.1029/2001GL013770
+    URL: https://doi.org/10.1029/2001GL013770
+    Type: idno_element
+    Source: idno_tag
+
+43. 10.1029/2001GL014056
+    URL: https://doi.org/10.1029/2001GL014056
+    Type: idno_element
+    Source: idno_tag
+
+44. 10.1029/2001JC001195
+    URL: https://doi.org/10.1029/2001JC001195
+    Type: idno_element
+    Source: idno_tag
+
+45. 10.1029/2003JD004436
+    URL: https://doi.org/10.1029/2003JD004436
+    Type: idno_element
+    Source: idno_tag
+
+46. 10.1029/2003RG000148
+    URL: https://doi.org/10.1029/2003RG000148
+    Type: idno_element
+    Source: idno_tag
+
+47. 10.1029/2004GB002299
+    URL: https://doi.org/10.1029/2004GB002299
+    Type: idno_element
+    Source: idno_tag
+
+48. 10.1029/2004JC002378
+    URL: https://doi.org/10.1029/2004JC002378
+    Type: idno_element
+    Source: idno_tag
+
+49. 10.1029/2004JC002419
+    URL: https://doi.org/10.1029/2004JC002419
+    Type: idno_element
+    Source: idno_tag
+
+50. 10.1029/2004JC002527
+    URL: https://doi.org/10.1029/2004JC002527
+    Type: idno_element
+    Source: idno_tag
+
+51. 10.1029/2005JC003207
+    URL: https://doi.org/10.1029/2005JC003207
+    Type: idno_element
+    Source: idno_tag
+
+52. 10.1029/2010GL044174
+    URL: https://doi.org/10.1029/2010GL044174
+    Type: idno_element
+    Source: idno_tag
+
+53. 10.1029/2010JC006899
+    URL: https://doi.org/10.1029/2010JC006899
+    Type: idno_element
+    Source: idno_tag
+
+54. 10.1029/2011JC007230
+    URL: https://doi.org/10.1029/2011JC007230
+    Type: idno_element
+    Source: idno_tag
+
+55. 10.1029/2011JC007771
+    URL: https://doi.org/10.1029/2011JC007771
+    Type: idno_element
+    Source: idno_tag
+
+56. 10.1029/2016EO062427
+    URL: https://doi.org/10.1029/2016EO062427
+    Type: idno_element
+    Source: idno_tag
+
+57. 10.1029/95gb02149
+    URL: https://doi.org/10.1029/95gb02149
+    Type: idno_element
+    Source: idno_tag
+
+58. 10.1029/JC088iC04p02565
+    URL: https://doi.org/10.1029/JC088iC04p02565
+    Type: idno_element
+    Source: idno_tag
+
+59. 10.1038/nature00983
+    URL: https://doi.org/10.1038/nature00983
+    Type: idno_element
+    Source: idno_tag
+
+60. 10.1038/nature05700
+    URL: https://doi.org/10.1038/nature05700
+    Type: idno_element
+    Source: idno_tag
+
+61. 10.1038/nature06441
+    URL: https://doi.org/10.1038/nature06441
+    Type: idno_element
+    Source: idno_tag
+
+62. 10.1038/nclimate2838
+    URL: https://doi.org/10.1038/nclimate2838
+    Type: idno_element
+    Source: idno_tag
+
+63. 10.1046/j.1529-
+    URL: https://doi.org/10.1046/j.1529-
+    Type: text_pattern
+    Source: text_content
+
+64. 10.1046/j.1529-8817.2002.00094.x
+    URL: https://doi.org/10.1046/j.1529-8817.2002.00094.x
+    Type: idno_element
+    Source: idno_tag
+
+65. 10.1046/j.1529-8817.2002.t01-1-01203.x
+    URL: https://doi.org/10.1046/j.1529-8817.2002.t01-1-01203.x
+    Type: idno_element
+    Source: idno_tag
+
+66. 10.1093/plankt/fbh012
+    URL: https://doi.org/10.1093/plankt/fbh012
+    Type: idno_element
+    Source: idno_tag
+
+67. 10.1111/j.0022-
+    URL: https://doi.org/10.1111/j.0022-
+    Type: text_pattern
+    Source: text_content
+
+68. 10.1111/j.0022-3646.1991.00008.x
+    URL: https://doi.org/10.1111/j.0022-3646.1991.00008.x
+    Type: idno_element
+    Source: idno_tag
+
+69. 10.1119/1.1991484
+    URL: https://doi.org/10.1119/1.1991484
+    Type: idno_element
+    Source: idno_tag
+
+70. 10.1146/annurev-marine-010213-135111
+    URL: https://doi.org/10.1146/annurev-marine-010213-135111
+    Type: idno_element
+    Source: idno_tag
+
+71. 10.1146/annurev-marine-010814-015813
+    URL: https://doi.org/10.1146/annurev-marine-010814-015813
+    Type: idno_element
+    Source: idno_tag
+
+72. 10.1175/2010JPO4365
+    URL: https://doi.org/10.1175/2010JPO4365
+    Type: idno_element
+    Source: idno_tag
+
+73. 10.1175/JTECH-D-15-0193
+    URL: https://doi.org/10.1175/JTECH-D-15-0193
+    Type: idno_element
+    Source: idno_tag
+
+74. 10.13155/33951
+    URL: https://doi.org/10.13155/33951
+    Type: idno_element
+    Source: idno_tag
+
+75. 10.13155/35385
+    URL: https://doi.org/10.13155/35385
+    Type: idno_element
+    Source: idno_tag
+
+76. 10.13155/39459
+    URL: https://doi.org/10.13155/39459
+    Type: idno_element
+    Source: idno_tag
+
+77. 10.13155/46601
+    URL: https://doi.org/10.13155/46601
+    Type: idno_element
+    Source: idno_tag
+
+78. 10.1364/AO.14.000413
+    URL: https://doi.org/10.1364/AO.14.000413
+    Type: idno_element
+    Source: idno_tag
+
+79. 10.1364/AO.40.002929
+    URL: https://doi.org/10.1364/AO.40.002929
+    Type: idno_element
+    Source: idno_tag
+
+80. 10.1364/AO.40.005503
+    URL: https://doi.org/10.1364/AO.40.005503
+    Type: idno_element
+    Source: idno_tag
+
+81. 10.1364/AO.41.002705
+    URL: https://doi.org/10.1364/AO.41.002705
+    Type: idno_element
+    Source: idno_tag
+
+82. 10.1364/AO.41.005755
+    URL: https://doi.org/10.1364/AO.41.005755
+    Type: idno_element
+    Source: idno_tag
+
+83. 10.1364/OE.17.012685
+    URL: https://doi.org/10.1364/OE.17.012685
+    Type: idno_element
+    Source: idno_tag
+
+84. 10.17882/47142
+    URL: https://doi.org/10.17882/47142
+    Type: idno_element
+    Source: idno_tag
+
+85. 10.17882/49388
+    URL: https://doi.org/10.17882/49388
+    Type: idno_element
+    Source: idno_tag
+
+86. 10.3354/ame01345
+    URL: https://doi.org/10.3354/ame01345
+    Type: idno_element
+    Source: idno_tag
+
+87. 10.3354/meps07998
+    URL: https://doi.org/10.3354/meps07998
+    Type: idno_element
+    Source: idno_tag
+
+88. 10.3354/meps11580
+    URL: https://doi.org/10.3354/meps11580
+    Type: idno_element
+    Source: idno_tag
+
+89. 10.3354/meps148187
+    URL: https://doi.org/10.3354/meps148187
+    Type: idno_element
+    Source: idno_tag
+
+90. 10.3354/meps238047
+    URL: https://doi.org/10.3354/meps238047
+    Type: idno_element
+    Source: idno_tag
+
+91. 10.3354/meps260001
+    URL: https://doi.org/10.3354/meps260001
+    Type: idno_element
+    Source: idno_tag
+
+92. 10.4319/lo.1978.23.2.0247
+    URL: https://doi.org/10.4319/lo.1978.23.2.0247
+    Type: idno_element
+    Source: idno_tag
+
+93. 10.4319/lo.1978.23.2.0260
+    URL: https://doi.org/10.4319/lo.1978.23.2.0260
+    Type: idno_element
+    Source: idno_tag
+
+94. 10.4319/lo.1989.34.8.1545
+    URL: https://doi.org/10.4319/lo.1989.34.8.1545
+    Type: idno_element
+    Source: idno_tag
+
+95. 10.4319/lo.1989.34.8.1694
+    URL: https://doi.org/10.4319/lo.1989.34.8.1694
+    Type: idno_element
+    Source: idno_tag
+
+96. 10.4319/lo.1995.40.2.0393
+    URL: https://doi.org/10.4319/lo.1995.40.2.0393
+    Type: idno_element
+    Source: idno_tag
+
+97. 10.4319/lo.1996.41.8.1684
+    URL: https://doi.org/10.4319/lo.1996.41.8.1684
+    Type: idno_element
+    Source: idno_tag
+
+98. 10.4319/lo.2003.48.2.0632
+    URL: https://doi.org/10.4319/lo.2003.48.2.0632
+    Type: idno_element
+    Source: idno_tag
+
+99. 10.4319/lo.2003.48.2.0843
+    URL: https://doi.org/10.4319/lo.2003.48.2.0843
+    Type: idno_element
+    Source: idno_tag
+
+100. 10.4319/lo.2004.49.2.0508
+    URL: https://doi.org/10.4319/lo.2004.49.2.0508
+    Type: idno_element
+    Source: idno_tag
+
+101. 10.4319/lo.2005.50.6.1795
+    URL: https://doi.org/10.4319/lo.2005.50.6.1795
+    Type: idno_element
+    Source: idno_tag
+
+102. 10.4319/lo.2007.52.2.0739
+    URL: https://doi.org/10.4319/lo.2007.52.2.0739
+    Type: idno_element
+    Source: idno_tag
+
+103. 10.4319/lo.2011.56.3.0955
+    URL: https://doi.org/10.4319/lo.2011.56.3.0955
+    Type: idno_element
+    Source: idno_tag
+
+104. 10.4319/lom.2010.8.0695
+    URL: https://doi.org/10.4319/lom.2010.8.0695
+    Type: idno_element
+    Source: idno_tag
+
+105. 10.4319/lom.2012.10.483
+    URL: https://doi.org/10.4319/lom.2012.10.483
+    Type: idno_element
+    Source: idno_tag
+
+106. 10.4319/lom.2012.10.910
+    URL: https://doi.org/10.4319/lom.2012.10.910
+    Type: idno_element
+    Source: idno_tag
+
+107. 10.5194/bg-11-5847-2014
+    URL: https://doi.org/10.5194/bg-11-5847-2014
+    Type: idno_element
+    Source: idno_tag
+
+108. 10.5194/bg-12-2179-2015
+    URL: https://doi.org/10.5194/bg-12-2179-2015
+    Type: idno_element
+    Source: idno_tag
+
+109. 10.5194/bg-13-1901-2016
+    URL: https://doi.org/10.5194/bg-13-1901-2016
+    Type: idno_element
+    Source: idno_tag
+
+110. 10.5194/bg-4-853-2007
+    URL: https://doi.org/10.5194/bg-4-853-2007
+    Type: idno_element
+    Source: idno_tag
+
+111. 10.5194/bg-5-
+    URL: https://doi.org/10.5194/bg-5-
+    Type: text_pattern
+    Source: text_content
+
+112. 10.5194/bg-5-171-2008
+    URL: https://doi.org/10.5194/bg-5-171-2008
+    Type: idno_element
+    Source: idno_tag
+
+113. 10.5194/bg-6-947-2009
+    URL: https://doi.org/10.5194/bg-6-947-2009
+    Type: idno_element
+    Source: idno_tag
+
+114. 10.5194/bg-7-1543-2010
+    URL: https://doi.org/10.5194/bg-7-1543-2010
+    Type: idno_element
+    Source: idno_tag
+
+115. 10.5194/bg-7-2117-2010
+    URL: https://doi.org/10.5194/bg-7-2117-2010
+    Type: idno_element
+    Source: idno_tag
+
+116. 10.5194/bg-8-3295-2011
+    URL: https://doi.org/10.5194/bg-8-3295-2011
+    Type: idno_element
+    Source: idno_tag
+
+117. 10.5194/bg-8-459-2011
+    URL: https://doi.org/10.5194/bg-8-459-2011
+    Type: idno_element
+    Source: idno_tag
+
+118. 10.5194/bgd-11-12833-2014
+    URL: https://doi.org/10.5194/bgd-11-12833-2014
+    Type: idno_element
+    Source: idno_tag
+
+119. 10.5194/bgd-4-2147-2007
+    URL: https://doi.org/10.5194/bgd-4-2147-2007
+    Type: idno_element
+    Source: idno_tag
+
+120. 10.5194/bgd-4-3409-
+    URL: https://doi.org/10.5194/bgd-4-3409-
+    Type: text_pattern
+    Source: text_content
+
+121. 10.5194/bgd-4-3409-2007
+    URL: https://doi.org/10.5194/bgd-4-3409-2007
+    Type: idno_element
+    Source: idno_tag
+
+122. 10.5194/bgd-4-4571-2007
+    URL: https://doi.org/10.5194/bgd-4-4571-2007
+    Type: idno_element
+    Source: idno_tag
+
+123. 10.5194/essd-2017-58
+    URL: https://doi.org/10.5194/essd-2017-58
+    Type: idno_element
+    Source: idno_tag
+
+124. 10.5194/os-11-759-2015
+    URL: https://doi.org/10.5194/os-11-759-2015
+    Type: idno_element
+    Source: idno_tag
+
+125. 10.5194/os-9-789-2013
+    URL: https://doi.org/10.5194/os-9-789-2013
+    Type: idno_element
+    Source: idno_tag
+
+126. 10.5670/oceanog.2011
+    URL: https://doi.org/10.5670/oceanog.2011
+    Type: idno_element
+    Source: idno_tag
+
+127. 10.5670/oceanog.2014
+    URL: https://doi.org/10.5670/oceanog.2014
+    Type: idno_element
+    Source: idno_tag
+
+128. 10.6028/jres.070C.025
+    URL: https://doi.org/10.6028/jres.070C.025
+    Type: idno_element
+    Source: idno_tag
+
+129. 1029/2002GL015948
+    URL: https://doi.org/1029/2002GL015948
+    Type: text_pattern
+    Source: text_content
+
+130. 1029/2002GL015948</idno>
+    URL: https://doi.org/1029/2002GL015948</idno>
+    Type: text_pattern
+    Source: text_content
+
+131. doi:10.1002/2016JC012629
+    URL: https://doi.org/doi:10.1002/2016JC012629
+    Type: text_pattern
+    Source: text_content
+
+132. doi:10.13155/33951
+    URL: https://doi.org/doi:10.13155/33951
+    Type: text_pattern
+    Source: text_content
+
+133. doi:10.13155/35385
+    URL: https://doi.org/doi:10.13155/35385
+    Type: text_pattern
+    Source: text_content
+
+134. doi:10.13155/39459
+    URL: https://doi.org/doi:10.13155/39459
+    Type: text_pattern
+    Source: text_content
+
+135. doi:10.17882/49388
+    URL: https://doi.org/doi:10.17882/49388
+    Type: text_pattern
+    Source: text_content
+
+136. https://doi.org/10.5194/essd-2017-58
+    URL: https://doi.org/https://doi.org/10.5194/essd-2017-58
+    Type: text_pattern
+    Source: text_content
+

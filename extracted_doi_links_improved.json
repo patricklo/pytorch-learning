@@ -1,0 +1,20 @@
+[
+  {
+    "doi": "1029/2002GL015948",
+    "type": "text_pattern",
+    "full_url": "https://doi.org/1029/2002GL015948",
+    "raw_text": "1029/2002GL015948"
+  },
+  {
+    "doi": "1029/2002GL015948</idno>",
+    "type": "text_pattern",
+    "full_url": "https://doi.org/1029/2002GL015948</idno>",
+    "raw_text": "1029/2002GL015948</idno>"
+  },
+  {
+    "doi": "https://doi",
+    "type": "text_pattern",
+    "full_url": "https://doi.org/https://doi",
+    "raw_text": "https://doi"
+  }
+]

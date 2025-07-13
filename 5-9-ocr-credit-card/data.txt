@@ -1,0 +1,883 @@
+RESEARCH ARTICLE
+10.1002/2017JC013030
+Assessing the Variability in the Relationship Between the
+Particulate Backscattering Coefficient and the Chlorophyll a
+Concentration From a Global Biogeochemical-Argo Database
+Marie Barbieux1
+, Julia Uitz1, Annick Bricaud1, Emanuele Organelli1,2
+, Antoine Poteau1
+,
+Catherine Schmechtig3
+, Bernard Gentili1, Grigor Obolensky4, Edouard Leymarie1
+,
+Christophe Penkerc’h1, Fabrizio D’Ortenzio1
+, and Herve Claustre1
+1Sorbonne Universites, UPMC Univ Paris 06, CNRS, Observatoire Oceanologique de Villefranche, Laboratoire
+d’Oceanographie de Villefranche, Villefranche-sur-Mer, France, 2Plymouth Marine Laboratory, Prospect Place, The Hoe,
+Plymouth, United Kingdom, 3OSU Ecce Terra, UMS 3455, CNRS and Universite Pierre et Marie Curie, Paris 6, Paris, France,
+4ERIC Euro-Argo, 29280 Plouzane, France
+Abstract Characterizing phytoplankton distribution and dynamics in the world’s open oceans requires in
+situ observations over a broad range of space and time scales. In addition to temperature/salinity measure-
+ments, Biogeochemical-Argo (BGC-Argo) proﬁling ﬂoats are capable of autonomously observing at high-
+frequency bio-optical properties such as the chlorophyll ﬂuorescence, a proxy of the chlorophyll a concen-
+tration (Chla), the particulate backscattering coefﬁcient (bbp), a proxy of the stock of particulate organic car-
+bon, and the light available for photosynthesis. We analyzed an unprecedented BGC-Argo database of more
+than 8,500 multivariable proﬁles collected in various oceanic conditions, from subpolar waters to subtropical
+gyres. Our objective is to reﬁne previously established Chla versus bbp relationships and gain insights into
+the sources of vertical, seasonal, and regional variability in this relationship. Despite some regional, seasonal
+and vertical variations, a general covariation occurs at a global scale. We distinguish two main contrasted
+situations: (1) concomitant changes in Chla and bbp that correspond to actual variations in phytoplankton
+biomass, e.g., in subpolar regimes; (2) a decoupling between the two variables attributed to photoacclima-
+tion or changes in the relative abundance of nonalgal particles, e.g., in subtropical regimes. The variability in
+the bbp:Chla ratio in the surface layer appears to be essentially inﬂuenced by the type of particles and by
+photoacclimation processes. The large BGC-Argo database helps identifying the spatial and temporal scales
+at which this ratio is predominantly driven by one or the other of these two factors.
+1. Introduction
+Our ability to observe the dynamics of phytoplankton biomass and associated carbon ﬂuxes on relevant
+space and time scales considerably limits our understanding and prediction skills of the biogeochemical role
+of phytoplankton in the carbon biological pump (Honjo et al., 2014; Legendre et al., 2015; Volk & Hoffert,
+1985). For example, in situ measurements of primary production and phytoplankton carbon biomass are par-
+ticularly challenging and remain scarce, although novel promising techniques have been recently proposed
+(Graff et al., 2012, 2015; Riser & Johnson, 2008). To overcome space-time coverage sampling limitations, bio-
+optical oceanographers have implemented optical sensors on a variety of in situ or remote platforms, from
+research vessels and moorings to ocean color satellites, gliders, and proﬁling ﬂoats, each with speciﬁc com-
+plementary space-time observation scales (Claustre et al., 2010; Dickey, 2003). Such platforms enable to mon-
+itor bio-optical properties that serve as proxies for major biogeochemical variables. Those include the
+concentration of chlorophyll a (Chla) and the particulate backscattering coefﬁcient at 700 nm (hereafter
+referred simply as bbp). The chlorophyll a concentration is the most commonly used proxy for the phyto-
+plankton carbon biomass (Cullen, 1982; Siegel et al., 2013), although it is well known that the ratio of Chla to
+carbon shows large ﬂuctuations driven by a variety of factors such as phytoplankton physiology (Alvarez
+et al., 2016; Geider, 1993; Staehr et al., 2002) or community composition (Geider et al., 1997; Halsey & Jones,
+2015; MacIntyre et al., 2002). In the absence of mineral particles (i.e., in most open ocean waters), bbp gener-
+ally covaries with, and is therefore used as a proxy of, the stock of particulate organic carbon (POC; Bishop,
+Key Points:
+ The bbp-to-Chla relationship varies
+along the water column, as well as
+with seasons and oceanic regions
+ The bbp-to-Chla ratio is a valuable
+biogeochemical proxy for assessing
+the nature of the particulate
+assemblage and revealing
+photoacclimation processes
+ The BGC-Argo ﬂoat network yields an
+unprecedented amount of quality
+data for studying biogeochemical
+processes at a global scale and along
+the vertical dimension
+Supporting Information:
+ Supporting Information S1
+ Supporting Information S2
+ Supporting Information S3
+ Table S1
+ Table S2
+ Table S3
+Correspondence to:
+M. Barbieux,
+barbieux@obs-vlfr.fr
+Citation:
+Barbieux, M., Uitz, J., Bricaud, A.,
+Organelli, E., Poteau, A.,
+Schmechtig, C., . . . Claustre, H. (2018).
+Assessing the variability in the
+relationship between the particulate
+backscattering coefﬁcient and the
+chlorophyll a concentration from a
+global Biogeochemical-Argo database.
+Journal of Geophysical Research:
+Oceans, 123, 1229–1250. https://doi.
+org/10.1002/2017JC013030
+Received 26 APR 2017
+Accepted 7 DEC 2017
+Accepted article online 28 DEC 2017
+Published online 15 FEB 2018
+V
+C 2017. American Geophysical Union.
+All Rights Reserved.
+BARBIEUX ET AL.
+1229
+Journal of Geophysical Research: Oceans
+PUBLICATIONS
+2009; Loisel et al., 2002; Stramski et al., 1999). However, changes in the nature (composition and size) of
+the particle assemblage may cause large variability in the bbp signal and in the POC-to-bbp relationship
+(Bishop, 2009; Flory et al., 2004; Gardner et al., 2006; Stramski et al., 2008).
+Examining bio-optical relationships, which, for example, link the inherent optical properties of particles such
+as absorption or scattering, to Chla, has long been an area of active research in bio-optical oceanography
+(Bricaud et al., 1995; Huot & Antoine, 2016; Mitchell, 1992; Mitchell & Holm-Hansen, 1991; Morel et al., 2007;
+Organelli et al., 2017a; Smith & Baker, 1978a; Szeto et al., 2011). Among different types of applications, bio-
+optical relationships enable deriving biogeochemical information over a broad range of space and time
+scales from in situ or remote optical measurements (Huot et al., 2007; Loisel et al., 2002; Siegel et al., 2005).
+Such relationships are also used in semianalytical inverse models to interpret remote sensing ocean color
+data (Gordon et al., 1988; Loisel & Morel, 1998; Morel & Maritorena, 2001). Various studies focused on the
+relationship between Chla and bbp using data from ocean color remote sensing (Reynolds et al., 2001;
+Stramska et al., 2003), ﬁeld cruises (Dall’Olmo et al., 2009; Huot et al., 2008), ﬁxed mooring (Antoine et al.,
+2011), or Biogeochemical-Argo (BGC-Argo) proﬁling ﬂoats (Xing et al., 2014). All of these studies conﬁrmed
+the principle of the ‘‘bio-optical assumption’’ (Siegel et al., 2005; Smith & Baker, 1978b), suggesting that in
+open ocean waters the optical properties of a water mass covary to a ﬁrst order with Chla. Yet depending
+on the considered data set, previous studies also indicate large second-order variability around the mean
+bbp versus Chla power law relationship (Brown et al., 2008; Huot et al., 2008; Xing et al., 2014). Restricted to
+a given period of time, region, or trophic regime and mainly to the surface layer of the water column, these
+studies did not lead to a thorough characterization of the variability in the relationship between Chla and
+bbp over the full range of environments encountered in the open ocean. In addition, these studies involved
+different methodologies for bbp measurements or retrievals, so that it is difﬁcult to untangle regional and/or
+seasonal variability from possible methodological biases (Sullivan et al., 2013).
+The recently launched network of BGC-Argo proﬁling ﬂoats is progressively transforming our capability to
+observe optical properties and biogeochemical processes in the oceans (Biogeochemical-Argo Planning
+Group, 2016; Claustre et al., 2010; IOCCG, 2011; Johnson & Claustre, 2016). The current BGC-Argo bio-optical
+database has drastically increased over recent years and now encompasses observations collected in a broad
+range of hydrological, trophic, and bio-optical conditions encountered in the world’s open oceans (Organelli
+et al., 2017a, 2017b). Based on homogeneous measurements and processing methodologies, this database
+offers a unique opportunity to comprehensively reassess bio-optical relationships. Based on the analysis of
+more than 8,500 multivariable proﬁles collected within the water column (0–1,000 m) by BGC-Argo ﬂoats,
+this study aims to (i) investigate the natural variability around the mean statistical bbp-to-Chla relationship at
+the vertical, regional, and seasonal scales and (ii) identify the underlying sources of variability.
+2. Data and Methods
+2.1. BGC-Argo Profiling Floats
+2.1.1. BGC-Argo Database
+An array of 105 BGC-Argo proﬁling ﬂoats was deployed in several areas of the world’s oceans in the frame
+of several research programs (Organelli et al., 2016a, 2017a). BGC-Argo proﬁling ﬂoat real-time data are
+accessible online (at ftp://ftp.ifremer.fr/ifremer/argo/dac/coriolis/), distributed as netCDF data ﬁles (Wong
+et al., 2013), and updated daily with new proﬁles. The quality-controlled database of bio-optical vertical pro-
+ﬁles that supports this work is publicly available from SEANOE (SEA scieNtiﬁc Open data Edition) publisher
+(Barbieux et al., 2017). In this database, proﬁles of bbp were eliminated when bathymetry was shallower
+than 400 m and a signature of bbp at depth was noticeable. This allowed us to remove the data collected in
+waters where a coastal inﬂuence was suspected, Black Sea excepted. Hence, 8908 BGC-Argo multiparameter
+proﬁles or ‘‘stations’’ (corresponding to 91 different BGC-ﬂoats) collected between 8 November 2012 and 5
+January 2016 were used in this study. These stations were grouped into 24 geographic areas (Table 1), fol-
+lowing the bioregions presented in Organelli et al. (2017a), except for the Eastern Subtropical Atlantic Gyre
+that is missing in our database because of suspicious backscattering data from the two proﬁling ﬂoats
+deployed in this bioregion.
+Our database includes measurements from a wide range of oceanic conditions, from subpolar to tropical
+waters and from eutrophic to oligotrophic conditions (Figure 1). For the purpose of simplifying the
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1230
+presentation of the results, we grouped the different bioregions into ﬁve main regimes: (1) the North Atlan-
+tic Subpolar Gyre (NSPG) divided in Icelandic Basin, Labrador and Irminger Seas; (2) the Southern Ocean
+(SO) essentially comprising the Indian and the Atlantic sectors; (3) the Mediterranean Sea (MED) that com-
+prises the Northwestern Basin (NW_MED), the Southwestern Basin (SW_MED), the Tyrrhenian Sea
+(TYR_MED), the Ionian Sea (ION_MED), and the Levantine Sea (LEV_MED); (4) the subtropical regimes (STG)
+that include subtropical oligotrophic waters from the North and South Atlantic and Paciﬁc Oceans and Red
+Sea (RED_SEA); and (5) the Black Sea (Table 1).
+2.1.2. Biogeochemical-Argo Sensor Characteristics and Sampling Strategy
+The ‘‘PROVOR CTS-4’’ (NKE Marine Electronics Inc., France) is a proﬁling autonomous platform speciﬁcally
+designed in the context of the Remotely Sensed Biogeochemical Cycles in the Ocean (remOcean) and Novel
+Argo Ocean Observing System (NAOS) projects. The PROVOR CTS-4 proﬁling ﬂoats used in this study were
+equipped with a SBE 41 CTD (Seabird Inc., USA), an OCR-504 (SAtlantic Inc., USA) multispectral radiometer
+measuring the Photosynthetically Available Radiation over the 400–700 nm range (PAR), and an ECO3
+(Combined Three Channel Sensors; WET Labs, Inc., USA) measuring the ﬂuorescence of chlorophyll a and
+Colored Dissolved Organic Matter (CDOM) at excitation/emission wavelengths of 470/695 and 370/460 nm
+respectively, and the angular scattering coefﬁcient of particles (b(h, k)) measured at 700 nm and an angle of
+1248. Measurements were collected during upward casts programmed every 1, 2, 3, 5, or 10 days depending
+on the mission and scientiﬁc objectives. All casts started from the parking depth at 1,000 m at a time that
+was sufﬁcient for surfacing around local noon. Vertical resolution of acquisition was 10 m between 1,000
+and 250 m, 1 m between 250 and 10 m, and 0.2 m between 10 m and the surface. Raw data (electronic
+counts) were transmitted to land, each time the ﬂoats surfaced, through Iridium two-way communication,
+and were converted into desired quantities. Each variable was quality-controlled according to procedures
+described hereafter and speciﬁcally developed for BGC-Argo data (Organelli et al., 2016b; Schmechtig et al.,
+Table 1
+Bioregions With the Corresponding Abbreviation, Regime, and Number of Available Floats and Proﬁles Represented in the
+BGC-Argo Database Used in the Present Study.
+Location
+Region abbreviation
+Regime
+N8 profiles
+N8 floats
+Norwegian Sea
+NOR_ARC
+North Subpolar Gyre (NSPG)
+139
+1
+Icelandic Basin
+ICB_NASPG
+828
+8
+Irminger Sea
+IRM_NASPG
+623
+11
+Labrador Sea
+LAS_NASPG
+1160
+16
+South Labrador Sea
+SLAS_NASPG
+62
+2
+North Atlantic Transition Zone to northern
+border of the Subtropical Gyre
+STZ_NASPG
+146
+1
+Atlantic to Indian Southern Ocean
+ATOI_SO
+Southern Ocean (SO)
+910
+10
+Indian Sector of the Southern Ocean
+IND_SO
+653
+6
+Atlantic Sector of the Southern Ocean
+ATL_SO
+49
+1
+Ligurian Sea and Gulf of Lions
+NW_MED
+Mediterranean Sea (MED)
+698
+8
+Provencal and Algero-Provencal Basin
+SW_MED
+417
+4
+Tyrrhenian Sea
+TYR_MED
+325
+5
+Ionian Sea
+ION_MED
+499
+6
+Levantine Sea
+LEV_MED
+511
+7
+Red Sea
+RED_SEA
+Subtropical Gyre (STG)
+75
+2
+North Atlantic Western Subtropical Gyre
+WNASTG
+12
+2
+South Atlantic South Subtropical Gyre
+SSASTG
+108
+1
+North Atlantic Subtropical Gyre
+NASTG
+363
+4
+South Paciﬁc Subtropical Gyre
+SPSTG
+281
+3
+New Caledonia sector of the Paciﬁc
+NC_PAC
+139
+2
+South Atlantic Subtropical Gyre
+SASTG
+368
+2
+South Atlantic Subtropical Transition Zone
+SASTZ
+214
+2
+North Atlantic Transition Zone to
+Subtropical Equatorial Atlantic
+EQNASTZ
+187
+2
+Black Sea
+BLACK_SEA
+141
+2
+TOTAL
+8767
+106
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1231
+2014, 2016). Additionally, all the casts were checked for data degradation due to biofouling or instrumental
+drift.
+2.2. Bio-Optical Data Processing
+2.2.1. Chlorophyll a Concentration
+After dark counts have been subtracted from the raw signal, chlorophyll a ﬂuorescence was ﬁrst converted
+into chlorophyll a concentration according to calibration coefﬁcients provided by the manufacturer (WET
+Labs, 2016). Following the procedures described in Schmechtig et al. (2014), the real-time dedicated quality
+control procedure identiﬁed the occurrence of negative spikes, adjusted chlorophyll a concentration pro-
+ﬁles for cases of nonzero values at depth and veriﬁed the range of measured values according to technical
+speciﬁcations provided by the manufacturer (WET Labs, 2016). In order to correct for the effect of the so-
+called nonphotochemical quenching (NPQ; decrease in the ﬂuorescence-to-Chl a ratio under high light con-
+ditions; Kiefer et al., 1973), we systematically applied the procedure developed by Xing et al. (2012). Besides,
+in some bioregions such as subtropical gyres or the Black Sea, the chlorophyll a concentration appeared to
+increase at depth where it should be null. Proctor and Roesler (2010) assigned this behavior to the inﬂuence
+of ﬂuorescence originating from nonalgal matter. Proﬁles were thus corrected according to Xing et al.
+(2016). Finally, following the recommendation by Roesler et al. (2017) for Chla measurements from WET
+Labs ECO ﬂuorometers, the calibrated quality-controlled Chla values were divided by a correction factor of 2.
+The correction factor was deducted from a global comparison of paired HPLC (high-performance liquid
+chromatography) and in situ ﬂuorescence Chla data and conﬁrmed by optical proxies of Chla such as light
+absorption line height (Roesler & Barnard, 2013) or in situ radiometry (Xing et al., 2011). The regional vari-
+ability of this average correction factor along with its possible uncertainties is fully discussed in Roesler
+et al. (2017). We performed a sensitivity analysis of the bbp-to-Chla relationship to the factor used for cor-
+recting the ﬂuorescence-based Chla values. We tested the inﬂuence of using two sets of regional factors
+proposed by Roesler et al. (2017) derived either from HPLC analyses or radiometric measurements, com-
+pared to the global factor of 2. Except for the Southern Ocean that appears more sensitive than other
+regions to the choice of the correction factor, our analysis reveals that the regional factors induce minor
+changes to the bbp-to-Chla relationship. Overall, those minor changes have little impact on the
+Figure 1. Geographical location of the multivariable vertical proﬁles collected by the BGC-Argo proﬁling ﬂoats represented
+in the database used in this study. The geographic locations are superimposed on an annual climatology of the surface chlo-
+rophyll a concentration derived from MODIS-Aqua climatological observations for the year 2015 (https://oceancolor.gsfc.
+nasa.gov/cgi/l3).
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1232
+interpretation of our results. Thereafter our analysis considers Chla values originating from the global cor-
+rection factor. Details of the sensitivity analysis may be found in electronic supporting information A.
+2.2.2. Particulate Backscattering Coefficient
+We followed the procedure established by Schmechtig et al. (2016). Backscattering sensors implemented
+on ﬂoats provide the angular scattering coefﬁcient b at 1248 and at 700 nm. The particulate backscattering
+coefﬁcient was calculated following Boss and Pegau (2001):
+bbpð700Þ ðm21Þ5vð124Þ32p3fbð124; 700Þ–bswð124; 700Þg
+(1)
+with b(124,700) (m21 sr21) 5 slope 3 (counts – bbdark)
+where the (instrument-speciﬁc) slope and bbdark are provided by the manufacturer, and v(124) is equal to
+1.076 (Sullivan et al., 2013). The contribution of pure seawater (bsw) was removed and computed according
+to Zhang et al. (2009). Finally, vertical proﬁles were quality-controlled by verifying the range of measured
+values according to the technical speciﬁcations provided by the manufacturer (WET Labs, 2016) and remov-
+ing negative spikes following Briggs et al. (2011). Remaining spikes were removed by applying a median ﬁl-
+ter (ﬁve-point window).
+2.2.3. Estimation of Uncertainty in the bbp-to-Chla Ratio
+The backscattering and chlorophyll ﬂuorescence sensors implemented on ﬂoats are all ECO3 sensors (WET
+Labs, Inc.). This avoids heterogeneous sources of uncertainties associated with various sensors (see e.g., Roes-
+ler et al., 2017). In addition, the data are calibrated and qualiﬁed following the recommended standard BGC-
+Argo procedure presented in Schmechtig et al. (2016). A thorough estimation of the uncertainties affecting
+the different parameters would necessitate an entirely dedicated study, which is beyond the scope of the pre-
+sent one. However, an estimation of the average error that may inﬂuence our results has been made.
+Accounting for measurement error only, we assume an error r bbp 700
+ð
+Þ m21
+ð
+Þ 5 2:2 3 1026 for the bbp sen-
+sor and r Chl a mg m23
+ð
+Þ 5 0:007 for the chlorophyll ﬂuorescence sensor, as provided by the manufac-
+turer. Following an error propagation law (Birge, 1939; Ku, 1966), the combined effect of these errors on the
+bbp-to-Chla ratio can be computed and a relative error (in %) can be obtained as
+r bbp=Chla
+
+
+5
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+rbbp
+2
+Chla2 1 bbp
+23 rChla2
+Chla4
+2
+2 3 bbp 3cor bbp;Chla
+ð
+Þ3 rbbp 3 rChla
+Chla3
+3Chla
+bbp
+v
+u
+u
+t
+(2)
+With cor (bbp, Chla) corresponding to the correlation between the particulate backscattering coefﬁcient and
+the chlorophyll a. Considering the surface data, a median error of 0.11% is obtained and 80% of the data
+show relative errors lower than 10% (Figure 2a). Relative errors larger than 10% appear for the lowest values
+of bbp (<1023 m21) and Chla (<1022 mg m23; Figure 2b), which corresponds to the clearest waters of the
+oligotrophic gyres. In addition, a sensitivity analysis described in supporting information A indicates that
+correcting the ﬂuorescence-based Chla values of the database with regional factors compared to a global
+factor does not signiﬁcantly affect the distribution of the computed errors in the bbp-to-Chla ratio.
+2.3. Derived Variables
+2.3.1. Physical and Biogeochemical Layers of the Water Column
+We consider four different layers of the water column: (i) the productive layer (Morel & Berthon, 1989) com-
+prised between the surface and 1.5 Zeu, with Zeu corresponding to the euphotic depth which is the depth at
+which PAR is reduced to 1% of its surface value; (ii) the mixed layer where all properties are expected to be
+homogenous and that encompasses a large fraction of the phytoplankton biomass (Brainerd & Gregg, 1995;
+Taylor & Ferrari, 2010); (iii) the surface layer, observable by satellite remote sensing, extending from surface
+to the ﬁrst optical depth (Zpd; Gordon & McCluney, 1975); and (iv) the deep chlorophyll maximum (DCM)
+layer (i.e., thickness of the DCM) where different processes may lead to a Chla enhancement. Unlike the pro-
+ductive layer, the surface, the mixed and the deep chlorophyll maximum layers are considered as homoge-
+neous layers where the phytoplankton population is expected to be acclimated to the same light and
+nutrient regimes. The 0–1.5Zeu layer is chosen to estimate the average bbp-to-Chla ratio in the entire
+enlightened layer of the water column, even if it is acknowledged that large variations in this ratio may
+occur throughout this layer. This average bbp-to-Chla ratio is thereafter used as a reference to which we
+compare the ratios calculated for the other layers of the water column.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1233
+The mixed layer depth (MLD) was determined using a 0.03 kg m23 density criterion (de Boyer Montegut,
+2004). The euphotic depth Zeu and the penetration depth, Zpd 5 Zeu/4.6, were computed from the BGC-
+Argo PAR vertical proﬁles following the procedure described in Organelli et al. (2016b). Values of Zeu and
+Zpd are available from Organelli et al. (2016a). To study more speciﬁcally the dynamics of the bio-optical
+properties in the DCM layer and because the width of a DCM may ﬂuctuate in space and time, we
+adjusted a Gaussian proﬁle to each vertical proﬁle of Chla of the database that presented a deep Chla
+maximum and computed the width of this DCM. This parameterizing approach proposed by Lewis et al.
+(1983) has been widely used to ﬁt vertical proﬁles of Chla (e.g., Morel & Berthon, 1989; Uitz et al., 2006)
+such as
+c z
+ð Þ5cmaxe2
+z2zmax
+Dz
+ð
+Þ
+2
+
+
+(3)
+where c(z) is the Chla concentration at depth z, cmax is the Chla concentration at the depth of the DCM
+(zmax), and Dz, the unknown, is the width of the DCM.
+In order to retrieve Dz, the unknown parameter, we performed an optimization of equation (3) with a maxi-
+mum width set at 50 m so only the proﬁles with a relatively pronounced DCM are kept. Then we computed
+the mean Chla and bbp for the layer that represents the thickness of the DCM.
+Figure 2. Boxplot of the distribution, for each of the 24 bioregions represented in the BGC-Argo database used in this study, of the (a) chlorophyll a concentration
+(Chla) in the surface (0-Zpd) layer, (b) particulate backscattering coefﬁcient at 700 nm (bbp) in the surface (0-Zpd) layer, (c) depth of the euphotic layer (Zeu), and
+(d) mixed layer depth (MLD). Note that the bioregions are ordered following the absolute value of the latitude and, within the Mediterranean Sea, following the
+longitude (i.e., from west to east). Red points beyond the end of the whiskers represent outliers beyond the 1.5 3 IQR (IQR 5 interquartile range) threshold.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1234
+Finally, all quality-controlled proﬁles of Chla and particulate backscattering coefﬁcient were averaged within
+the different considered layers.
+2.3.2. Environmental and Biological Parameters
+In order to analyze the variability in the bbp-to-Chla relationship, we consider the role of the light condi-
+tions in the various layers of the water column, i.e., the productive, mixed, surface, and DCM layers. The
+vertical proﬁles of bbp:Chla and PAR were averaged within each of the four considered layers. For each
+layer and both variables, the median value was computed monthly and regionally (i.e., for each regime).
+For each layer and each regime, we determined the maximum observed PAR that was used to normalize
+the monthly median PAR values of the corresponding layer and regime (PARnorm). Ultimately, for each
+layer and each regime, the monthly median PARnorm values were classiﬁed into four different intervals (0–
+0.25; 0.25–0.50; 0.50–0.75; 0.75–1), and the monthly averaged bbp: Chla values were assigned to one of
+these four PARnorm intervals.
+Using the method of Uitz et al. (2006), an index of the phytoplankton community composition, based on
+the relative contributions of size classes to total chlorophyll a, was also computed from the surface Chla val-
+ues. We applied this procedure to the surface Chla values from our BGC-Argo database that we further
+monthly averaged to ﬁnally obtain the relative contributions of microphytoplankton to the total chlorophyll
+a biomass for each bioregion within the 0-Zpd layer.
+3. Results
+3.1. Overview of the BGC-Argo Database
+A latitudinal decreasing gradient of surface Chla is observed from the North Subpolar Gyre (NSPG) and
+Southern Ocean (SO) regimes to the subtropical (STG) regime with a median Chla from 1 mg m23 to
+0.05 mg m23, respectively (Figure 2a). It is noteworthy that, in our data set where the South East Paciﬁc
+Ocean is not represented, the South Atlantic Subtropical Gyre (SASTG) is the most oligotrophic bioregion,
+experiencing the lowest median Chla (0.014 mg m23) and the highest median Zeu (135 m). A west-to-east
+trophic gradient is observed in the Mediterranean Sea, with median surface Chla values of 0.186 and 0.025
+mg m23 in the Northwestern Basin and the Levantine Sea, respectively (Figure 2a).
+A similar pattern is observed in the surface particulate backscattering coefﬁcient values (Figure 2b). Median
+surface bbp values range between 0.002 m21 in NSPG and 0.0003 m21 in STG regime. In the Mediterra-
+nean Sea, the bbp values vary over 1 order of magnitude, with maximum values found in the Northwestern
+Basin and minimum values in the Levantine Sea. The North Atlantic Transition Zone to Subtropical Equato-
+rial Atlantic (EQNASTZ) bioregion exhibits particularly high values of bbp compared to other STG regions
+(Figure 2a). The Zeu values also show a latitudinal gradient (Figure 2c), with median values of 50 m in
+NSPG and 125 m in STG regimes. The median MLD shows a signiﬁcant variability among the 24 bioregions
+(Figure 2d). The distribution of the MLD in the Mediterranean Sea is centered on a low median value of
+23 m, but very large values (>250 m) are episodically observed in the Northwestern Mediterranean
+(NW_MED). The deepest mixed layers (median value of 98 m) are observed in the South Labrador Sea
+(SLAS_NASPG), and episodes of extremely deep mixed layers (1,000 m) are also recorded in the Labrador
+Sea (LAS_NASPG). The shallowest mixed layers are observed in the Black Sea (20 m). It is also worth to
+notice that MLD values in STG are particularly stable and feature very few outliers.
+3.2. Variability in the bbp-to-Chla Relationship at the Global Scale
+Within Distinct Layers of the Water Column
+3.2.1. The Productive Layer
+In this layer, the bbp-to-Chla relationship follows a power law (R2 5 0.74; Figure 3a). Yet when data from dif-
+ferent regimes and bioregions are considered separately, regional and seasonal patterns emerge. Bioregions
+of the subpolar NSPG and SO regimes (Figures 4a–4i) show a signiﬁcant correlation between Chla and bbp
+with high R2 (>0.60) and slope (i.e., exponent of the power law) always above 0.50 (except for the Norwe-
+gian Sea, Figure 4a). Minimal values of both Chla and bbp are encountered in winter whereas maximal val-
+ues are reached in summer. Deviations from the global log-log linear model occur in some bioregions of
+the NSPG regime, e.g., in the Icelandic Basin (ICB_NASPG) in summer (Figure 4b) and are characterized by
+an abnormally high bbp signal considering the observed Chla levels. Such a deviation is found all year long
+in the Black Sea, where a correlation between Chla and bbp is no longer observable (R2 5 0.09; Figure 4x).
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1235
+In the Mediterranean Sea, the slope and R2 decrease from the Northwestern Basin (NW_MED, Figure 4j) to
+the Levantine Sea (LEV_MED, Figure 4n), where Chla appears to be decoupled from bbp. In the Mediterra-
+nean Sea, a seasonal pattern is noticeable principally in the NW_MED, where the highest values of Chla and
+bbp are found in spring. Except for the South Atlantic Subtropical Transition Zone (SASTZ) that displays a
+steep slope and a high R2 value (0.68 and 0.80, respectively), regions from the subtropical regime do not
+show any signiﬁcant correlation between Chla and bbp, featuring the lowest slope and R2 values of the bbp-
+to-Chla relationship (Figures 4o–4w). This clearly suggests a decoupling between those two properties. In
+these oligotrophic environments, different production regimes are delineated along the vertical axis in the
+upper and lower part of the euphotic zone. One may expect that the bbp-to-Chla relationship will vary
+depending on the considered layer. In this perspective, we further investigate the behavior of the bio-
+optical properties in different layers of the water column, namely the mixed layer, the surface layer, and the
+DCM layer.
+3.2.2. The Mixed and Surface Layers
+The distribution of Chla and bbp data for the surface and mixed layers shows similar patterns (Figures 3b
+and 3c). The distribution in the surface layer shows two distinct trends. With the exception of the Atlantic to
+Indian Southern Ocean (ATOI_SO) bioregion that shows an important dispersion of bbp values during sum-
+mer, the data collected in the NSPG and SO regimes and NW_MED bioregions exhibit a clear log-log linear
+covariation between Chla and bbp associated with slopes above 0.3 and high R2 (Figures 5a–5j), similarly to
+what is observed for the productive layer (Figures 3a and 4). In the subpolar NSPG and SO regimes, values
+of bbp and Chla in the 0-Zpd layer reach their maximal values in summer (Figures 5a–5i), whereas in the
+NW_MED, the highest values are recorded in spring (Figure 5j). Data from the subtropical regime (STG) form
+a separate cluster where Chla and bbp are decoupled, with generally very low R2 values. Chla values
+Figure 3. Log-log scatterplot of the particulate backscattering coefﬁcient at 700 nm (bbp) as a function of the chlorophyll
+a concentration (Chla) within (a) the productive layer comprised between the surface and 1.5Zeu, (b) the mixed layer,
+(c) the surface (0-Zpd) layer, and (d) at the level of the deep chlorophyll maximum (DCM). The color code indicates the
+regime where the Biogeochemical-Argo data were collected. For each plot, the black line represents the relationship
+calculated over the productive layer (0–1.5Zeu) while the red line corresponds to the regression model calculated over the
+considered layer. The other lines represent regression relationships from the literature summarized in Table 2.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1236
+encountered are almost always under 0.1 mg m23 and the slope of the relationship remains under 0.2.
+Whereas bbp values remain constant all over the seasons, a seasonal increase of Chla is observable with
+noticeable higher winter values (Figures 5o–5w).
+The MED Sea is characterized by a gradual decrease in the Chla and bbp covariation across a longitudinal
+trophic gradient (Figures 5j–5n) from the NW_MED (slope 5 0.33, R2 5 0.66) to the LEV_MED (slope 5 0.15,
+R2 5 0.21). The Eastern Mediterranean basin does not feature any spring maximum in Chla and bbp (Figures
+5m and 5n). However, there is a noticeable winter increase in Chla as reported also in the STG regime.
+Regarding the Black Sea bioregion, high values of both variables are observed and no seasonal pattern is
+noticed (Figure 5x), consistent with what is observed in the productive layer.
+Figure 4. Log-log scatterplot of the particulate backscattering coefﬁcient at 700 nm (bbp) as a function of the chlorophyll
+a concentration (Chla) within the layer comprised between the surface and 1.5Zeu for each bioregion. The color code indi-
+cates the seasons. The black line represents the average relationship calculated in this layer considering all bioregions
+and the red line corresponds to the regression model calculated for each bioregion considered here (when R2 > 0.2).
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1237
+3.2.3. The Deep Chlorophyll Maximum Layer
+The analysis of the bbp-to-Chla relationship at the level of the DCM obviously considers only the seasonal or
+permanent stratiﬁed regimes (and bioregions) where a DCM occurs, i.e., the Mediterranean and subtropical
+regimes. The bbp-to-Chla relationship in the DCM layer gradually deviates from the relationship established
+in the productive layer considering all bioregions (Figure 3d). Chla is systematically higher by a factor 2
+Figure 5. Log-log scatterplot of the particulate backscattering coefﬁcient at 700 nm (bbp) as a function of the chlorophyll
+a concentration (Chla) within the surface layer (0-Zpd) for each bioregion. The color code indicates the seasons. For each
+plot, the black line represents the average relationship calculated for the surface layer (0-Zpd) for the entire database while
+the red line is the regression model calculated for each bioregion (shown only if R2 > 0.2). The data points for the produc-
+tive layer are shown in grey color.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1238
+regardless of the bioregion and never reaches values below 0.1 mg m23 (Figures 3d and B1 in electronic
+supporting information B).
+The subset of data from this layer also shows two distinct trends in the bbp-to-Chla relationship, for Chla val-
+ues below or above 0.3 mg m23 (Figure 3d). For Chla > 0.3 mg m23, a positive correlation between bbp and
+Chla can be noticed, although with a large dispersion of the data around the regression line, whereas for
+Chla < 0.3 mg m23, Chla and bbp exhibit a strong decoupling. The MED Sea (Figures B1a–B1e in electronic
+supporting information B) is characterized by a stronger covariation between Chla and bbp than the STG
+regime (Figures B1f–B1n in electronic supporting information B) (R2 5 0.53 for NW_MED versus R2 5 0.10 for
+SPSTG). In the Mediterranean Sea, DCMs are seasonal phenomena occurring essentially in summer or fall
+(e.g., Siokou-Frangou et al., 2010). A covariation between bbp and Chla occurs as soon as a DCM takes place,
+with maximum values of bbp and Chla encountered in summer when the DCM is the most pronounced, in
+both the western and eastern Mediterranean basins. On the opposite, in the STG regime where durable
+stratiﬁcation takes place, DCMs appear as a permanent pattern. The bbp and Chla variations are decoupled
+and the highest values of both variables are recorded in spring or fall.
+4. Discussion
+The present analysis of a global BGC-Argo database indicates a general power relationship between bbp
+and Chla in the productive layer as well as in the surface and mixed layers. Nevertheless, the analysis of sub-
+sets of data suggests a large second-order variability around the global mean relationships, depending on
+the considered range of values in Chla and bbp, layer of the water column, region, or season. In this section,
+we investigate the sources of variability around the average bbp-to-Chla relationship in our database.
+4.1. General Relationship Between Chla and bbp
+The chlorophyll a concentration is the most commonly used proxy for the phytoplankton carbon biomass
+(Cullen, 1982; Siegel et al., 2013), whereas the particulate backscattering coefﬁcient is considered as a proxy
+of the POC in open ocean (Balch et al., 2001; Cetinic´ et al., 2012; Dall’Olmo & Mork, 2014; Stramski et al.,
+1999) and provides information on the whole pool of particles, not speciﬁcally on phototrophic organisms.
+Over broad biomass gradients, the stock of POC covaries with phytoplankton biomass and hence bbp and
+Chla show substantial covariation. This is what is observed in the present study when the full database is
+considered (Figure 3a). This is also the case when we examine subsets of data from the NSPG and SO
+regimes that feature strong seasonality and show relatively constant relationships between bbp and Chla
+(Figures 3a–3c, 4a–4I, and 5a–5i). In such environments, an increase in the concentration of chlorophyll a is
+associated with an increase in bbp. Such signiﬁcant relationships between bbp and Chla have indeed been
+reported in several studies based on relatively large data sets (Huot et al., 2008) or measurements from
+seasonally dynamic systems (Antoine et al., 2011; Stramska et al., 2003; Xing et al., 2014). Our results
+corroborate these studies and yield a global relationship of the form bbp(700) 5 0.00181 (60.000001)
+Chla0.605 (60.005) for the productive layer.
+Nevertheless, the bbp-to-Chla relationship is largely variable depending on the considered layer of the water
+column. Regarding the mixed and surface layers, our study suggests a general relationship with determina-
+tion coefﬁcients smaller than those calculated for the productive layer. The intercept (0.0017) and more
+importantly the slope values (0.36) associated with the surface layer are also lower than those associated
+with the productive layer (Table 3); hence, for a given level of bbp, the Chla is lower for the surface layer
+than predicted by the productive layer relationship. Empirical relationships of the literature previously
+established in various regions in the ﬁrst few meters of the water column (Antoine et al., 2011; Dall’Olmo
+et al., 2009; Reynolds et al., 2001; Xing et al., 2014) always show steeper slope compared to our results for
+the surface layer (Table 2).
+To our knowledge, the present study proposes the ﬁrst analysis of the bbp-to-Chla relationship within the
+DCM layer. A signiﬁcant relationship between bbp and Chla is observed and it is associated with the steep-
+est slope, the highest RMSE and the lowest coefﬁcient of determination in comparison with the other layers
+(Table 3). Thus, for the DCM layer, a given level of bbp is associated with higher values of Chla than pre-
+dicted by the global relationship of the productive layer.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1239
+In the next two sections, we will investigate the underlying processes leading to the existence or not of a
+relationship between bbp and Chla and explore the variability of this relationship along the vertical dimen-
+sion, the seasons and the distinct bioregions of the different regimes. For this purpose, we will consider the
+behavior of the bbp:Chla ratio with respect to light conditions and phytoplankton community composition.
+4.2. Influence of the Nature of the Particulate Assemblage on the bbp-to-Chla Relationship
+Although the relationship between POC and bbp is evident in some regions, the particulate backscattering
+coefﬁcient is not a direct proxy of POC. It depends on several parameters such as the concentration of par-
+ticles in the water column, their size distribution, shape, structure, and refractive index (Babin & Morel,
+2003; Huot et al., 2007; Morel & Bricaud, 1986; Whitmire et al., 2010). The bbp coefﬁcient has been shown to
+be very sensitive to the presence of picophytoplankton as well as of nonalgal particles of the submicron
+size range (e.g., detritus, bacteria, and viruses), especially in oligotrophic waters (Ahn et al., 1992; Stramski
+et al., 2001; Vaillancourt et al., 2004), but also to particles up to 10 mm (Loisel et al., 2007).
+In regions with substantial inputs of mineral particles, a shift toward enhanced bbp values for a constant
+Chla level occurs (Figures 4w and 4x, 5w and 5x). Substantial concentrations of mineral particles, submi-
+crometer particles of Saharan origin, for example, have been shown to cause signiﬁcant increases in the par-
+ticulate backscattering signal (Claustre et al., 2002; Loisel et al., 2011; Prospero, 1996; Stramski et al., 2004).
+The EQNASTZ bioregion exhibits, for example, particularly high bbp values compared to the low Chla found
+in the surface layer (Figures 4w and 5w). This is not surprising considering that this region is located in the
+Equatorial North Atlantic dust belt (Kaufman et al., 2005). The Black Sea is also characterized by a higher bbp
+signal than predicted from Chla based on our global model (Figures 4x and 5x). This could be explained by
+the fact that this enclosed sea follows a coastal trophic regime and is strongly inﬂuenced by river runoff
+that may carry small and highly refractive lithogenic particles (Ludwig et al., 2009; Tanhua et al., 2013). Such
+an increase in backscattering signal may also be related to coccolithophorid blooms (Balch et al., 1996a).
+These small calcifying microalgae highly backscatter light due to their calcium carbonate shell and their
+presence could explain the episodically higher bbp than predicted by the global regression model
+Table 2
+Empirical Relationship Between the Particulate Backscattering Coefﬁcient (bbp) and the Concentration Of Chlorophyll a (Chl a) Previously Published in the Literature
+With the Corresponding Reference and Abbreviation, Region, and Layer of the Water Column Considered for Analysis
+Empirical relationship
+Region
+Layer in the
+water column
+Abbreviation
+Reference
+bbp(k) 5 0.0023 – 0.000005
+(k – 550) Chla0.565 1 0.000486(k–550)
+Eastern South Paciﬁc
+2/Kd(490)
+H08
+Huot et al. (2008)
+bbp(555) 5 0.004 Chla0.822
+Antarctic Polar Front
+15 m
+R0l a
+Reynolds et al. (2001)
+bbp(555) 5 0.001 Chla0.667
+Ross Sea
+15 m
+R0l b
+Reynolds et al. (2001)
+bbp(555) 5 0.0019 Chla0.61
+Polar North Atlantic
+MLD
+S03
+Stramska et al. (2003)
+bbp(526) 5 0.00386 Chla
+Eastern Equatorial Paciﬁc
+Surface
+Dall09
+Dall’Olmo et al. (2009) modiﬁed
+in Xing et al. (2014)
+bbp(532) 5 0.003 Chla0.786
+North Atlantic Subpolar Gyre
+Zpd
+X14
+Xing et al. (2014)
+bbp(555) 5 0.00197 Chla0.647
+North-Western Mediterranean
+Sea and Santa Barbara Channel
+Surface
+All
+Antoine et al. (2011)
+Table 3
+Empirical Relationship Obtained Between the Particulate Backscattering Coefﬁcient (bbp) and the Concentration of
+Chlorophyll a (Chl a) for the Different Layers of the Water Column Considered in This Study
+Empirical relationship
+Water column layer
+R2
+RMSE
+Number of data
+bbp(700) 5 0.00174 Chla0.360
+0-Zpd
+0.6311
+0.000942
+5,253
+bbp(700) 5 0.00171 Chla0.373
+0-MLD
+0.6167
+0.000932
+8,743
+bbp(700) 5 0.00147 Chla0.753
+DCM
+0.5667
+0.00104
+1,628
+bbp(700) 5 0.00181 Chla0.605
+021.5Zeu
+0.7443
+0.000967
+5,250
+Note. We also indicate the associated statistics: Root-mean-squared error (RMSE) and coefﬁcient of determination R2
+for the signiﬁcance level of p < 0.001.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1240
+particularly in the Black Sea where coccolithophorid blooms are frequently reported (Cokacar et al., 2001;
+Kopelevich et al., 2014) or in the Iceland Basin (Balch et al., 1996b; Holligan et al., 1993; Figure 4b or 5b).
+Recently, the bbp:Chla ratio, proxy of the POC:Chla ratio (Alvarez et al., 2016; Behrenfeld et al., 2015; West-
+berry et al., 2016), has been used as an optical index of phytoplankton communities, with low values associ-
+ated with a dominance of diatoms in the phytoplankton assemblage (Cetinic´ et al., 2012, 2015). Indeed, in
+open ocean waters, phytoplankton generally dominate the pool of particles in the water column. A shift
+toward higher or weaker bbp values at a constant Chla level may be explained by changes in the phyto-
+plankton community composition. However, in oligotrophic environments, nonalgal particles may represent
+a signiﬁcant part of the particulate assemblage (Loisel et al., 2007; Stramski et al., 2004; Yentsch & Phinney,
+1989). Indeed, a background of submicronic living biological cells such as viruses and bacteria or even non-
+living particles including detritus or inorganic particles could inﬂuence the bbp:Chla ratio (e.g., Claustre
+et al., 1999; Morel & Ahn, 1991; Stramski et al., 2001).
+The lowest bbp:Chla values in our global database occur in summer in the NSPG and SO regimes (Figures
+6a–6i) and are associated with large contributions (>40%) of microphytoplankton to the total Chla. This
+actually corroborates the hypothesis of Cetinic´ et al. (2012, 2015) that bbp:Chla can be considered as an opti-
+cal index of the phytoplankton community composition. High values of the bbp:Chla ratio are associated
+with large contributions of picophytoplankton and nanophytoplankton to algal biomass and low values
+with diatom-dominated communities. The occurrence of microphytoplankton blooms of large-sized
+Figure 6. Monthly climatology of the bbp:Chla ratio within the surface layer (0-Zpd). The color code indicates the fractional
+contribution of the microphytoplankton to the chlorophyll biomass associated with the entire phytoplankton assemblage,
+estimated from the Uitz et al. (2006) parameterization. In each ﬁgure, the horizontal black line shows the minimum value
+of the bbp:Chla ratio determined within each bioregion. The black lines represent the standard deviation for each data
+point.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1241
+phytoplankton community is indeed well known in the NSPG regime (Barton et al., 2015; Cetinic´ et al., 2015;
+Li, 2002) or in some productive regions of the Southern Ocean (Georges et al., 2014; Mendes et al., 2015;
+Uitz et al., 2009). Similarly, in the NW_MED bioregion, low bbp:Chla values are accompanied by large contri-
+butions of microphytoplankton during the spring bloom (Marty & Chiaverini, 2010; Mayot et al., 2016;
+Siokou-Frangou et al., 2010). On the opposite, high bbp:Chla values in summer are rather associated with
+dominant contributions of the picophytoplankton and nanophytoplankton to the total chlorophyll biomass
+(Figure 6j) and also possibly to a higher proportion of nonalgal particles, consistently with Navarro et al.
+(2014) or Sammartino et al. (2015).
+In the rest of the Mediterranean Basin (SW_MED, TYR_MED and the Eastern Basin) (Figures 6k–6n) as well as
+in the subtropical regime, the phytoplankton biomass is essentially constant throughout the year with high
+bbp:Chla values in summer, lower values in winter, and a relatively constant picoplankton-dominated algal
+community (Figures 6o–6w; Dandonneau et al., 2004; Ras et al., 2008; Uitz et al., 2006). In this region, the
+seasonal cycle of the bbp:Chla ratio does not seem to be inﬂuenced at a ﬁrst order by changes in phyto-
+plankton community composition.
+4.3. Influence of Photoacclimation on the bbp-to-Chla Relationship
+The Chla is an imperfect proxy of phytoplankton biomass that varies not only with phytoplankton carbon
+biomass but also with environmental conditions such as light, temperature, or nutrient availability (Babin
+et al., 1996; Cleveland et al., 1989; Geider et al., 1997). Phytoplankton cells adjust their intracellular Chla in
+response to changes in light conditions through the process of photoacclimation (Dubinsky & Stambler,
+2009; Eisner et al., 2003; Falkowski & Laroche, 1991; Lindley et al., 1995). Photoacclimation-induced varia-
+tions in intracellular Chla may cause large changes in the Chla-to-carbon ratio (Behrenfeld et al., 2005;
+Geider, 1987; Sathyendranath et al., 2009) and, thus, changes in the bbp-to-Chla ratio (Behrenfeld & Boss,
+2003; Siegel et al., 2005). In the upper oceanic layer of the water column, photoacclimation to high light
+may result in an increase in the bbp-to-Chla ratio whereas a decrease in this ratio occurs in DCM layers or in
+the upper layer during winter time in subpolar regimes (NSPG and SO) where photoacclimation to low light
+occurs.
+The impact of light conditions on the bbp:Chla ratio in the different regimes is illustrated in Figure 7. Signiﬁ-
+cant trends are observed in the different layers of the water column for all regimes except for the Black Sea.
+In the NSPG and SO regimes, the bbp:Chla ratio remains relatively constant with respect to the normalized
+PAR regardless of the considered layer of the water column (Figures 7a–7c). In contrast, the Mediterranean
+Sea and the subtropical gyres show a decoupling between bbp and Chla (Figures 5k–5w) so the bbp:Chla
+ratio in the productive, mixed or surface layer increases with an increase in the normalized PAR (Figures 7a–
+7c). The seasonal cycle of the bbp:Chla ratio in these regimes results from variations in Chla whereas bbp
+remains relatively constant over the seasons (not shown). Thus, our results suggest that the variability in the
+bbp:Chla ratio in the NSPG and SO regimes is not driven at ﬁrst order by phytoplankton acclimation to light
+level even if such a process is known to occur at shorter temporal and spatial scales in those regimes (Beh-
+renfeld et al., 2015; Lutz et al., 2003). On the opposite, in both the MED and STG regimes the bbp:Chla ratio
+variations are essentially driven by phytoplankton photoacclimation.
+In these oligotrophic regimes, Chla within the DCM layer is at least a factor of 2 higher than in the produc-
+tive layer (Figure 6). In the lower part of the euphotic zone, phytoplankton cells hence adjust their intracellu-
+lar Chla to low light conditions, resulting in a decrease in the bbp:Chla ratio. In addition, the bbp:Chla ratio in
+this layer seems to remain constant within a regime regardless of absolute light conditions (Figure 7d).
+Actually, the absolute values of PAR essentially vary between 10 and 25 mmol quanta m22 s21 in all the bio-
+regions along the year with values exceeding 50 mmol quanta m22 s21 only in the NW_MED and EQNASTZ
+bioregions. As reported by Letelier et al. (2004) and Mignot et al. (2014), the DCM may follow a given iso-
+lume along the seasonal cycle and is thus essentially light driven. Finally, we suggest that the relative homo-
+geneity of both the environmental (PAR) conditions and phytoplankton community composition at the
+DCM level in subtropical regimes may explain the relative stability of the bbp:Chla values in this water col-
+umn layer. In the Mediterranean Sea, in contrast, some studies evoke changes in phytoplankton communi-
+ties in the DCM layer (Crombet et al., 2011) suggesting our results might be further explored when relevant
+data are available.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1242
+4.4. Variability in the bbp-to-Chla Relationship Is Driven by a Combination of Factors
+In the previous sections, we examined the processes that potentially drive the variability in the bbp-to-Chla
+relationship in the various oceanic regimes considered here.
+In the subpolar regimes NSPG and SO, changes in the composition of the particle assemblage, phytoplank-
+ton communities in particular, are likely the ﬁrst-order driver of the seasonal variability in the bbp-to-Chla
+ratio (Figure 8). In these regimes, the bbp:Chla ratio remains constant regardless of the light intensity in
+both the productive and surface layers suggesting that phytoplankton photoacclimation is likely not an
+important driver of the variability in the bbp-to-Chla relationship. We note, however, that in the SO other
+factors may come into play, such as the light-mixing regime or iron limitation (e.g., Blain et al., 2007, 2013;
+Boyd, 2002). On the opposite, in the subtropical regime, Chla and bbp are decoupled in the surface layer as
+well as in the DCM layer. Thus, photoacclimation seems to be the main process driving the vertical and sea-
+sonal variability of the bbp-to-Chla relationship, although a varying contribution of nonalgal particles to the
+particle pool cannot be excluded.
+Whereas the subpolar and the subtropical regimes behave as a ‘‘biomass regime’’ and a ‘‘photoacclimation
+regime’’ (sensu Siegel et al., 2005), respectively, the Mediterranean Sea stands as an intermediate regime
+between these two end-members. The large number of data available in the Mediterranean allows us to
+describe this intermediate situation (Figure 8). The Mediterranean Sea appears as a more complex and vari-
+able system than the stable and resilient subtropical gyres. Along with the ongoing development of the
+global BGC-Argo program and associated ﬂoat deployments, additional data collected in underrepresented
+regions will become available to make our database more robust and will help to improve our analysis. In
+the surface layer of the Mediterranean system, a high bbp:Chla ratio in summer might be attributed not only
+to (i) a background of submicronic living biological cells such as viruses and bacteria or large contribution
+of nonliving particles including detritus or inorganic particles (Bricaud et al., 2004; Claustre et al., 1999;
+Figure 7. Histogram of the monthly median bbp:Chla ratio as a function of the normalized Photosynthetically Available
+Radiation (PARnorm) for each regime within (a) the layer comprised between the surface and 1.5Zeu, (b) the mixed layer,
+(c) the surface layer, and (d) within the DCM layer. The color code indicates the regimes in which the BGC-Argo data were
+collected. Note the different y scale for Figure 7d compared to Figures 7a–7c. The black lines on the top of each bar repre-
+sent the standard deviation.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1243
+Oubelkheir et al., 2005) or to (ii) photoacclimation of phytoplankton cells to high light conditions as sug-
+gested by Bellacicco et al. (2016), but also to (iii) a shift toward small phytoplankton dominated communi-
+ties (picophytoplankton or nanophytoplankton) after the seasonal microphytoplankton bloom.
+Following the longitudinal trophic gradient of the Mediterranean Sea, we observe a variation in the biogeo-
+chemical status of the DCM (Figures 1a–d in Supporting information A). The DCM may be attributed to low
+light photoacclimation similarly to the DCM observed in the STG regime. Yet under favorable light and
+nutrient conditions encountered in the Western Mediterranean basin, the DCM could result from a real bio-
+mass increase occurring at depth instead of a simple photoacclimation ‘‘artifact’’ (Beckmann & Hense, 2007;
+Cullen, 2014; Mignot et al., 2014; Winn et al., 1995). In such conditions referred to as ‘‘deep biomass maxi-
+mum’’ (DBM), a concurrent increase in Chla and POC associated with large phytoplankton cells leads to con-
+stantly low values of the bbp:Chla ratio (Figure 7d). Our results corroborate previous studies (Crombet et al.,
+2011; Latasa et al., 1992; Mignot et al., 2014) about the seasonal occurrence of a DBM in the Western Basin
+of Mediterranean Sea. This deep feature could actually represent a signiﬁcant source of phytoplankton car-
+bon biomass that is ignored by satellite ocean color sensors that only probe the surface layer of the water
+column.
+Figure 8. Conceptual scheme of the seasonal cycle of the bbp:Chla ratio in the surface layer of the ocean with potential
+factors explaining its variability. HNLL, High Nutrient Low Light; HNHL, High Nutrient High Light; LNHL, Low Nutrient High
+Light; LNLL, Low Nutrient Low Light.
+Journal of Geophysical Research: Oceans
+10.1002/2017JC013030
+BARBIEUX ET AL.
+1244
+5. Conclusions
+The main goal of the present study was to examine the variability of the relationship between the particu-
+late backscattering coefﬁcient and the chlorophyll a concentration over a broad range of oceanic condi-
+tions. Using an extensive BGC-Argo proﬁling ﬂoat database, we investigated the sources of variability in this
+relationship with respect to the vertical dimension as well as on a seasonal and regional scale. In accordance
+with previous studies (Antoine et al., 2011; Dall’Olmo et al., 2009; Huot et al., 2008; Reynolds et al., 2001;
+Stramska et al., 2003; Xing et al., 2014) and consistently with the so-called ‘‘bio-optical assumption’’ (Siegel
+et al., 2005; Smith & Baker, 1978b), a general covariation between bbp and Chla is observed at a global scale
+in the productive layer of the water column (0–1.5Zeu). Although this covariation seems to be permanent in
+subpolar regimes in relation with large-amplitude phytoplankton biomass seasonal cycles (Boss & Behren-
+feld, 2010; Henson et al., 2006; Lacour et al., 2015), several nuances have been revealed according to the
+season, considered layer of the water column and bioregion. We suggest that the bbp:Chla ratio, proxy of
+the C:Chla ratio (Behrenfeld et al., 2015; Westberry et al., 2016), can be used either as an index of the nature
+(composition and size) of the particle assemblage in a ‘‘biomass regime’’ (NSPG and SO regimes and West-
+ern Mediterranean basin) or as a photophysiological index in a ‘‘photoacclimation regime’’ (STG regime and
+Eastern Mediterranean basin).
+The present analysis provides insights into the coupling between major proxies of the POC and phytoplank-
+ton biomass in key regimes encountered in the world’s open oceans. It points to the strong potential of the
+recently available global BGC-Argo ﬂoat database to address regional or seasonal nuances in ﬁrst-order rela-
+tionships that have been established in the past on admittedly restricted data sets. In addition, this study
+stresses out the large variability in the bbp-to-Chla relationship, which is critical to the bio-optical modeling
+of the bbp coefﬁcient in several semiempirical ocean color models (Garver & Siegel, 1997; Lee et al., 2002;
+Maritorena et al., 2002). Indeed, bio-optical and reﬂectance models require detailed knowledge and param-
+eterization of the average trends in the inherent optical properties, especially in open ocean waters where
+these trends can be related to Chla. Although the analysis of the impact of such variability on ocean color
+modeling is out of the scope of the present paper, we expect our analysis to be potentially useful in the
+context of applications to ocean color. Finally, as the amount of BGC-ﬂoat data will continue to increase, it
+will be possible to reassess the variability of bio-optical relationships and to establish new ‘‘global’’ stand-
+ards and regional parameterizations.
