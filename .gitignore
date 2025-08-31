@@ -6,3 +6,4 @@
 *.pth
 /4-2/.ipynb_checkpoints
 /4-4/data/MNIST
+/kaggle/.idea
