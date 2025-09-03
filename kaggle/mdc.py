@@ -1,6 +1,7 @@
 import os
 import pandas as pd
-LOCAL = sum(['KAGGLE' in k for k in os.environ]) == 0
+import sys
+LOCAL = 0 == 0
 if not LOCAL:
     # !mkdir -p /root/.cache/datalab/models/
     # !mkdir -p /usr/local/lib/python3.11/dist-packages/static/fonts/
@@ -10,6 +11,7 @@ if not LOCAL:
     sys.path.append('/kaggle/input/xml-parse')
     sys.path.append('/kaggle/input/mdc-tools')
     sys.path.append('/kaggle/input/mdc-tools-v2')
+sys.path.append('D:\\Workspace\\GitHub\\Pytorch\\kaggle\\lib')
 from utils import *
 from bert_inference import *
 from xml_prase import *
@@ -17,12 +19,248 @@ from xml_prase import *
 # https://docs.vllm.ai/en/latest/getting_started/v1_user_guide.html#deprecated-features
 os.environ["VLLM_USE_V1"] = "0"
 if LOCAL:
-    labels_dir = 'train_labels.csv'
+    labels_dir = 'D:\\Workspace\\GitHub\\Pytorch\\kaggle\\ref-data\\train_labels.csv'
 else:
     labels_dir =  "/kaggle/input/make-data-count-finding-data-references/train_labels.csv"
+import re
+import fitz  # PyMuPDF
+import numpy as np
+import pandas as pd
+from pathlib import Path
+from tqdm.auto import tqdm
+# from logits_processor_zoo.vllm import MultipleChoiceLogitsProcessor
+import pickle
+import vllm
+import torch
+from typing import Optional, Tuple
+import unicodedata
+from collections import Counter, defaultdict
 
+# Step 1: Read all PDFs and convert to text
+if LOCAL:
+    root_path = "D:\\Workspace\\GitHub\\Pytorch\\kaggle\\ref-data\\"
+    pdf_directory = root_path + "test\\PDF"
+    xml_directory = root_path + "test\\XML"
+    md_directory = "D:\\Workspace\\GitHub\\Pytorch\\kaggle\\train_parsed\\"
+    unique_datasets = "D:\\Workspace\GitHub\\Pytorch\\kaggle\\accession-ids-dataset\\unique_datasets.txt"
+    reorganized_publication_dataset = "D:\\Workspace\\GitHub\\Pytorch\\kaggle\\reorganized_publication_dataset.json"
+else:
+    pdf_directory = "/kaggle/input/make-data-count-finding-data-references/test/PDF" \
+        if os.getenv('KAGGLE_IS_COMPETITION_RERUN') \
+        else "/kaggle/input/make-data-count-finding-data-references/train/PDF"
+    xml_directory = "/kaggle/input/make-data-count-finding-data-references/test/XML" \
+        if os.getenv('KAGGLE_IS_COMPETITION_RERUN') \
+        else "/kaggle/input/make-data-count-finding-data-references/train/XML"
+    md_directory = "/kaggle/working/pdf_parsed"
+    unique_datasets = "/kaggle/input/d/patricklo01/data-doi-and-accesion-ids/unique_datasets.txt"
+    reorganized_publication_dataset = "/kaggle/input/data-doi-and-accesion-ids/reorganized_publication_dataset.json"
+    reorganized_publication_dataset = "/kaggle/input/d/patricklo01/data-reorganized-publication-dataset/reorganized_publication_dataset.json"
 
-def load_all_accession_ids_efficient(base_path='/kaggle/input/accession-ids-dataset'):
+patterns_to_find = {
+    # 1. 文献与书籍
+    'doi': re.compile(
+        r'(10\.\d{4,}/(?:[-._/A-Z0-9]*(?:\([-._/A-Z0-9]*\)[-._/A-Z0-9]*)*[A-Z0-9]|[-._/A-Z0-9]*[A-Z0-9]))',
+        re.IGNORECASE),
+    'doi2': re.compile(r'dryad\.[^\s"<>]+|pasta\/[^\s"<>]+|zenodo\.\d+|pangaea\.\d+', re.IGNORECASE),
+    'doi_ref': re.compile(
+        r'(10\.\d{4,}/(?:[-._/A-Z0-9]*(?:\([-._/A-Z0-9]*\)[-._/A-Z0-9]*)*[A-Z0-9]|[-._/A-Z0-9]*[A-Z0-9]))',
+        re.IGNORECASE),
+    'doi_ref2': re.compile(r'dryad\.[^\s"<>]+|pasta\/[^\s"<>]+|zenodo\.\d+|pangaea\.\d+', re.IGNORECASE),
+    # # # 2. 生物信息学数据库ID (按前缀精确匹配)
+
+    # ArrayExpress accession ID
+    'arrayexpress_id': re.compile(r'\b(E-[A-Z]{4}-\d+)\b'),
+
+    # AlphaFold DB identifiers
+    'alphafold_id_1': re.compile(r'\b(AF-[OPQ]\d[A-Z0-9]{3}\d+-F\d)\b', re.IGNORECASE),
+    'alphafold_id_2': re.compile(r'\b(AF-[A-NR-Z]\d(?:[A-Z][A-Z0-9]{2}\d)+-F\d)\b', re.IGNORECASE),
+
+    # # BRENDA enzyme database identifiers
+    'brenda_ec_number': re.compile(r'\b(\d+\.(?:\d+|\-)\.(?:\d+|\-)\.(?:\d+|\-))\b'),
+    'brenda_tissue_ontology_id': re.compile(r'\b(BTO: ?\d{7})\b', re.IGNORECASE),
+
+    # BioImage Archive accession ID
+    'bia_id': re.compile(r'\b(S-BIAD\d+)\b', re.IGNORECASE),
+
+    # BioModels identifiers
+    'biomodels_id': re.compile(r'\b((?:BIOMD|MODEL)\d{10}|BMID\d{12})\b', re.IGNORECASE),
+
+    # BioSample accession ID
+    'biosample_id': re.compile(r'\b(SAM[NED][A-Z]?\d+)\b', re.IGNORECASE),
+
+    # CATH protein structure classification identifiers
+    'cath_id': re.compile(r'\b(\d[a-zA-Z0-9]{4}\d{2})\b'),
+    'cath_domain': re.compile(r'\b([1-4](?:\.\d+){3})\b'),
+
+    # Cellosaurus cell line accession ID
+    'cellosaurus_id': re.compile(r'\b(CVCL_[a-zA-Z0-9]{4})\b', re.IGNORECASE),
+
+    # ChEBI (Chemical Entities of Biological Interest) ID
+    'chebi_id': re.compile(r'\b(CHEBI:\d+)\b', re.IGNORECASE),
+
+    # ChEMBL molecule ID
+    'chembl_id': re.compile(r'\b(CHEMBL\d+)\b', re.IGNORECASE),
+
+    # Complex Portal accession ID
+    'complexportal_id': re.compile(r'\b(CPX-\d+)\b', re.IGNORECASE),
+
+    # EBI Metagenomics sample ID
+    'metagenomics_sample_id': re.compile(r'\b(SRS\d{6})\b', re.IGNORECASE),
+
+    # Experimental Factor Ontology (EFO) ID
+    # 'efo_id': re.compile(r'\b(EFO[:_]\d+)\b'),
+
+    # European Genome-phenome Archive (EGA) identifiers
+    'ega_id': re.compile(r'\b(EGA[SDC]\d{11})\b', re.IGNORECASE),
+
+    # Electron Microscopy Data Bank (EMDB) ID
+    'emdb_id': re.compile(r'\b(EMD-\d{4})\b', re.IGNORECASE),
+
+    # Electron Microscopy Public Image Archive (EMPIAR) ID
+    'empiar_id': re.compile(r'\b(EMPIAR-\d{5})\b'),
+
+    # ENA/GenBank/DDBJ Accession Numbers
+    'ena_accession': re.compile(r'\b([A-Z]\d{5}|[A-Z]{2}\d{6}|[A-RT-Z][A-Z]{3}S?\d{8,9}|[A-Z]{3}\d{5})\b',
+                                re.IGNORECASE),
+    'sra_id': re.compile(r'\b((?:[EDS]R[PXRAZ]|ERS)\d{5,})\b', re.IGNORECASE),
+    'ena_trace': re.compile(r'\b(TI\d+)\b', re.IGNORECASE),
+
+    # Ensembl identifiers (Gene, Transcript, Protein)
+    'ensembl_id': re.compile(r'\b(ENS[A-Z]*[GTP]\d{11,})\b', re.IGNORECASE),
+
+    # Gene Ontology (GO) ID
+    # 'go_id': re.compile(r'\b(GO:\d{7})\b', re.IGNORECASE),
+
+    # HGNC (HUGO Gene Nomenclature Committee) ID
+    # 'hgnc_id': re.compile(r'\b(HGNC:\d+)\b', re.IGNORECASE),
+
+    # Human Protein Atlas (HPA) identifiers
+    'hpa_id': re.compile(r'\b((?:HPA|CAB)\d{6})\b', re.IGNORECASE),
+
+    # IGSR (International Genome Sample Resource) / 1000 Genomes identifiers
+    'igsr_id': re.compile(r'\b(HG0[0-4]\d{3}|(?:NA|GM)[0-2]\d{4})\b'),
+
+    # IntAct molecular interaction database ID
+    'intact_id': re.compile(r'\b(EBI-\d+)\b', re.IGNORECASE),
+
+    # MINT (Molecular INTeraction database) ID
+    'mint_id': re.compile(r'\b((?:MINT|IM)-\d+)\b', re.IGNORECASE),
+
+    # InterPro ID for protein families, domains and sites
+    'interpro_id': re.compile(r'\b(IPR\d{6})\b', re.IGNORECASE),
+
+    # MetaboLights study accession ID
+    'metabolights_id': re.compile(r'\b(MTBLS\d+)\b', re.IGNORECASE),
+
+    # Protein Data Bank (PDB) ID
+    'pdb_id': re.compile(r'\b(\d[a-zA-Z0-9]{3})\b'),
+
+    # Pfam database accession ID
+    'pfam_id': re.compile(r'\b(PF(?:AM)?\d{5})\b', re.IGNORECASE),
+
+    # PRIDE/ProteomeXchange dataset identifier
+    'pride_id': re.compile(r'\b(R?PXD\d{6})\b', re.IGNORECASE),
+
+    # Reactome pathway identifier
+    'reactome_id': re.compile(r'\b(R-HSA-\d+)\b', re.IGNORECASE),
+
+    # Rfam accession ID
+    'rfam_id': re.compile(r'\b(RF\d{5})\b'),
+
+    # Rhea reaction identifier
+    'rhea_id': re.compile(r'\b(RHEA:[1-9]\d*)\b', re.IGNORECASE),
+
+    # RNAcentral sequence identifier
+    'rnacentral_id': re.compile(r'\b(URS[0-9A-Z]+_\d+)\b'),
+
+    # UniProt accession numbers
+    # 'uniprot_id': re.compile(r'\b((?:[A-NR-Z]\d[A-Z][A-Z0-9]{2}\d)|(?:[OPQ]\d[A-Z0-9]{3}\d))(?:-\d+)?\b', re.IGNORECASE),
+    'uniprot_id': re.compile(r'\b((?:[A-NR-Z]\d[A-Z][A-Z0-9]{2,}\d)|(?:[OPQ]\d[A-Z0-9]{3,}\d))(?:-\d+)?\b',
+                             re.IGNORECASE),
+    # UniParc (UniProt Archive) identifier
+    'uniparc_id': re.compile(r'\b(UPI[A-F0-9]{10})\b', re.IGNORECASE),
+
+    # EBiSC (European Bank for induced pluripotent Stem Cells) ID
+    'ebisc_id': re.compile(r'\b([A-Z]{2,}i\d{3}-[A-Z])\b'),
+
+    # HipSci (Human Induced Pluripotent Stem Cells Initiative) ID
+    'hipsci_id': re.compile(r'\b(HPSI\d{4}(?:i|pf)-[a-z]+_\d+)\b'),
+
+    # RefSeq sequence identifier
+    'refseq_id': re.compile(r'\b((?:AC|AP|NC|NG|NM|NP|NR|NT|NW|NZ|XM|XP|XR|YP|ZP|NS)_(?:[A-Z]{4})*\d{6,9}(?:\.\d+)?)\b',
+                            re.IGNORECASE),
+
+    # dbSNP (Single Nucleotide Polymorphism database) ID
+    'refsnp_id': re.compile(r'\b([rs]s\d{1,9})\b', re.IGNORECASE),
+
+    # Digital Object Identifier (DOI)
+    # 'doi': re.compile(r'\b(10\.\d{4,}/[^ ()\"<>]+)\b'),
+
+    # BioProject accession ID
+    'bioproject_id': re.compile(r'\b(PRJ[DEN][A-Z]\d+)\b', re.IGNORECASE),
+
+    # GenBank Assembly Accession (GCA)
+    # 'gca_id': re.compile(r'\b(GCA_\d{9}(?:\.\d+)?)\b'),
+
+    # TreeFam (Tree Families database) ID
+    'treefam_id': re.compile(r'\b(TF\d{6})\b', re.IGNORECASE),
+
+    # EudraCT (European Union Drug Regulating Authorities Clinical Trials Database) number
+    'eudract_id': re.compile(r'(\d{4}-\d{6}-\d{2})'),
+
+    # ClinicalTrials.gov ID
+    'nct_id': re.compile(r'\b(NCT0\d{7})\b', re.IGNORECASE),
+
+    # dbGaP (database of Genotypes and Phenotypes) study accession
+    'dbgap_id': re.compile(r'\b(phs\d{6})\b', re.IGNORECASE),
+
+    # GEO (Gene Expression Omnibus) accession ID
+    'geo_id': re.compile(r'\b(G(?:PL|SM|SE|DS)\d{2,})\b', re.IGNORECASE),
+
+    # Orphadata/Orphanet identifier for rare diseases
+    # 'orphanet_id': re.compile(r'\b(ORPHA[: ]\d+)\b', re.IGNORECASE),
+
+    # GISAID (Global Initiative on Sharing All Influenza Data) identifiers
+    'gisaid_id': re.compile(r'(EPI\d{6,}|EPI_ISL_\d{5,})', re.IGNORECASE),
+    "biostudies": re.compile(r'\b(S-[A-Z]{3,5}\d+)\b'),
+}
+COMPILED_PATTERNS = {
+    'ref_header_patterns': [re.compile(
+        r'\b(R\s*E\s*F\s*E\s*R\s*E\s*N\s*C\s*E\s*S|BIBLIOGRAPHY|LITERATURE CITED|WORKS CITED|CITED WORKS|ACKNOWLEDGEMENTS)\b[:\s]*',
+        re.IGNORECASE)],
+    'citation_pattern': re.compile(r'^\s*(\[\d+\]|\(\d+\)|\d+\.|\d+\)|\d+(?=\s|$))\s*'),
+    'first_citation_patterns': [
+        re.compile(r'^\s*\[1\]\s*'),
+        re.compile(r'^\s*\(1\)\s*'),
+        re.compile(r'^\s*1\.\s*'),
+        re.compile(r'^\s*1\)\s*'),
+        re.compile(r'^\s*1(?=\s|$)'),
+    ],
+}
+BIBLIOGRAPHY_PATTERNS = [
+    # References patterns
+    r'^REFERENCES?$',
+    r'^\d+\.?\s+REFERENCES?$',
+    r'^\d+\.?\s+References?$',
+    r'^References?:?$',
+    r'^References?\s+Cited.{0,10}$',
+    # Bibliography patterns
+    r'^BIBLIOGRAPHY$',
+    r'^\d+\.?\s+BIBLIOGRAPHY$',
+    r'^\d+\.?\s+Bibliography$',
+    r'^Bibliography:?$',
+
+    # Other common patterns
+    r'^Literature\s+Cited$',
+    r'^Works\s+Cited.{0,10}$',
+    r'^ACKNOWLEDGMENTS?$',
+    r'^Acknowledgments?$',
+    r'^FUNDING$',
+    r'^CONFLICTS?\s+OF\s+INTEREST$',
+    r'^NOTES$',
+]
+
+def load_all_accession_ids_efficient(base_path='D:\\Workspace\\GitHub\\Pytorch\\kaggle\\accession-ids-dataset'):
     """
     高效版本：逐行读取，避免内存溢出。
     同时收集每个 ID 对应的 PMCID 和 EXTID 列表。
@@ -917,13 +1155,13 @@ def _find_by_keyword_search(plain_text: str) -> Tuple[Optional[str], str]:
 
     return None, "No data source mentions found"
 
-df_doi = pd.read_csv('/kaggle/input/d/patricklo01/accession-ids-dataset/doi.csv')
+df_doi = pd.read_csv('D:\\Workspace\\GitHub\\Pytorch\\kaggle\\accession-ids-dataset\\doi.csv')
 doi_series = df_doi["doi"].dropna().astype(str)
 prefixes = doi_series.str.split('/', n=1).str[0]
 doi_prefix_set = set(prefixes)
 
-unique_datasets = "/kaggle/input/d/patricklo01/data-doi-and-accesion-ids/unique_datasets.txt"
-reorganized_publication_dataset = "/kaggle/input/data-reorganized-publication-dataset/reorganized_publication_dataset.json"
+unique_datasets = "D:\\Workspace\\GitHub\\Pytorch\\kaggle\\accession-ids-dataset\\unique_datasets.txt"
+reorganized_publication_dataset = "D:\\Workspace\\GitHub\\Pytorch\\kaggle\\reorganized_publication_dataset.json"
 chunks = []
 chunks_ref = []
 cover_information = []
@@ -1364,7 +1602,7 @@ for filename in tqdm(os.listdir(xml_directory), total=len(os.listdir(xml_directo
 df_chunks = pd.DataFrame(chunks, columns=['article_id', 'context_chunk', 'result_value', 'pattern_name'])
 
 # 保存为CSV文件
-df_chunks.to_csv('/kaggle/working/chunks.csv', index=False, encoding='utf-8')
+df_chunks.to_csv('D:\\Workspace\\GitHub\\Pytorch\\kaggle\\working\\chunks.csv', index=False, encoding='utf-8')
 chunks_processed = []
 for article_id, context_chunk, result_value, pattern_name in chunks:
     if result_value.startswith('https://doi.org/'):
@@ -1483,7 +1721,7 @@ chunks = filter_chunks_by_majority_id(chunks, id_details)
 df_chunks = pd.DataFrame(chunks, columns=['article_id', 'context_chunk', 'result_value', 'pattern_name'])
 
 # 保存为CSV文件
-df_chunks.to_csv('/kaggle/working/filter_chunks.csv', index=False, encoding='utf-8')
+df_chunks.to_csv('D:\\Workspace\\GitHub\\Pytorch\\kaggle\\working\\filter_chunks.csv', index=False, encoding='utf-8')
 
 if not os.getenv('KAGGLE_IS_COMPETITION_RERUN'):
     label_df = pd.read_csv(labels_dir)
@@ -1573,30 +1811,31 @@ answers.extend(["Secondary"] * len(chunks_ref))
 df_answers = pd.DataFrame(answers, columns=['answers'])
 
 # 保存为CSV文件
-df_answers.to_csv('/kaggle/working/answers.csv', index=False, encoding='utf-8')
+df_answers.to_csv('D:\\Workspace\\GitHub\\Pytorch\\kaggle\\working\\answers.csv', index=False, encoding='utf-8')
 
 
-if LOCAL:
-    model_path = "/root/autodl-tmp/Qwen2.5-32B-Insturct-AWQ"
-    # model_path = "/kaggle/input/qwen2.5/transformers/7b-instruct/1"
-    # model_path = "/kaggle/input/qwen3-30b-a3b-instruct-2507-awq/transformers/default/1"
-else:
-    model_path = "/kaggle/input/qwen2.5/transformers/32b-instruct-awq/1"
-from transformers import AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-llm = vllm.LLM(
-    model_path,
-    # quantization='awq',
-    tensor_parallel_size=torch.cuda.device_count(),
-    gpu_memory_utilization=0.95,
-    trust_remote_code=True,
-    dtype="half",
-    enforce_eager=True,
-    max_model_len=4096,
-    disable_log_stats=True,
-    enable_prefix_caching=True
-)
-tokenizer = llm.get_tokenizer()
+# if LOCAL:
+#     model_path = "/root/autodl-tmp/Qwen2.5-32B-Insturct-AWQ"
+#     # model_path = "/kaggle/input/qwen2.5/transformers/7b-instruct/1"
+#     # model_path = "/kaggle/input/qwen3-30b-a3b-instruct-2507-awq/transformers/default/1"
+# else:
+#     model_path = "/kaggle/input/qwen2.5/transformers/32b-instruct-awq/1"
+# from transformers import AutoTokenizer
+model_name = "Qwen/Qwen2.5-7B"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+# llm = vllm.LLM(
+#     model_path,
+#     # quantization='awq',
+#     tensor_parallel_size=torch.cuda.device_count(),
+#     gpu_memory_utilization=0.95,
+#     trust_remote_code=True,
+#     dtype="half",
+#     enforce_eager=True,
+#     max_model_len=4096,
+#     disable_log_stats=True,
+#     enable_prefix_caching=True
+# )
+# tokenizer = llm.get_tokenizer()
 
 SYS_PROMPT_AUTHOR_INFORMATION = """
 You are a highly efficient and precise author extraction tool. Your sole task is to identify and extract all main authors of a paper from the provided cover page text.
@@ -1657,32 +1896,42 @@ Output:
 === Instruction ===
 Analyze the following cover information using the search strategy above. Find the main authors of the article and output ONLY the `<authors>` tag containing their names.
 """.strip()
+import ollama
 prompts = []
+all_messages = []
 for i, item in enumerate(cover_information):
     article_id, cover_text = item
-    messages = [
+    messages_prompt = [
         {"role": "system", "content": SYS_PROMPT_AUTHOR_INFORMATION},
         {"role": "user", "content": f"Cover Information:{cover_text[:2000]}"}
     ]
-
-    prompt = tokenizer.apply_chat_template(
-        messages,
-        add_generation_prompt=True,
-        tokenize=False,
-        enable_thinking=False,
+    response = ollama.chat(
+        model='qwen2.5:7b',
+        messages=messages_prompt
     )
-    prompts.append(prompt)
+    print(response['message']['content'])
+    # prompt = tokenizer.apply_chat_template(
+    #     messages,
+    #     add_generation_prompt=True,
+    #     tokenize=False,
+    #     enable_thinking=False,
+    # )
+    # prompts.append(prompt)
+    # all_messages.append(messages)
 print(len(prompts[0]))
-outputs = llm.generate(
-    prompts,
-    vllm.SamplingParams(
-        seed=42,
-        skip_special_tokens=True,
-        max_tokens=96,
-        temperature=0.1
-    ),
-    use_tqdm=True
-)
+#model_name = "Qwen/Qwen2.5-7B"
+outputs = ollama.chat(model='qwen2.5:7b', messages=all_messages)
+print(outputs['message']['content'])
+# outputs = llm.generate(
+#     prompts,
+#     vllm.SamplingParams(
+#         seed=42,
+#         skip_special_tokens=True,
+#         max_tokens=96,
+#         temperature=0.1
+#     ),
+#     use_tqdm=True
+# )
 responses = [output.outputs[0].text for output in outputs]
 
 author_information = {}
